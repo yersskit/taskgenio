@@ -1,0 +1,119 @@
+{
+    "menu": {
+        "home": "Inicio",
+        "projects": "Proyectos",
+        "tasks": "Tareas",
+        "teams": "Equipos",
+        "teamMembers": "Miembros del equipo",
+        "settings": "Configuración"
+    },
+    "languages": {
+        "en": "English",
+        "de": "Deutsch",
+        "es": "Español",
+        "fr": "Français",
+        "zh": "中文",
+        "ja": "日本語",
+        "ru": "Русский",
+        "ar": "العربية",
+        "pt": "Português",
+        "ko": "한국어",
+        "it": "Italiano"
+    },
+    "alerts": {
+        "error": "Error",
+        "success": "Completado",
+        "warning": "Advertencia",
+        "info": "Información"
+    },
+    "messages": {
+        "logout": "¿Estás seguro que deseas cerrar sesión?",
+        "delete": "¿Estás seguro que deseas eliminar este {{entity}}?"
+    },
+    "error_messages": {
+        "load_teams": "Error al cargar los equipos.",
+        "load_team_members": "Error al cargar los miembros del equipo.",
+        "create_team": "Error al crear el equipo.",
+        "create_team_member": "Error al crear el miembro del equipo."
+    },
+    "success_messages": {
+        "create_team": "Equipo creado correctamente.",
+        "create_team_member": "Miembro del equipo creado correctamente.",
+        "create_project": "Proyecto creado correctamente."
+    },
+    "errors": {
+        "no_error": "",
+        "default_error": "Ha ocurrido un error inesperado. Por favor, inténtalo de nuevo más tarde.",
+        "user_invalid_credentials": "Correo electrónico o contraseña incorrectos.",
+        "user_already_exists": "El correo electrónico ya está en uso.",
+        "general_unauthorized_scope": "No tienes permisos para realizar esta acción.",
+        "no_data_found": "No se encontraron registros.",
+        "error_login": "Error al iniciar sesión.",
+        "required_field": "Este campo es requerido.",
+        "invalid_email": "El correo electrónico no es válido.",
+        "one_uppercase": "Una mayúscula.",
+        "one_lowercase": "Una minúscula.",
+        "one_number": "Un número.",
+        "one_special_character": "Un caracter especial !@#$%^&*",
+        "minimum_password_characters": "Mínimo 8 caracteres."
+    },
+    "actions": {
+        "logout": "Cerrar sesión",
+        "login": "Iniciar sesión",
+        "register": "Crear cuenta",
+        "create": "Crear",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "view": "Ver"
+    },
+    "labels": {
+        "search": "Buscar",
+        "home": "Inicio",
+        "admin": "Administrador",
+        "password": "Contraseña",
+        "email": "Correo electrónico",
+        "name": "Nombre",
+        "lastname": "Apellido",
+        "confirm_password": "Confirmar contraseña",
+        "forget": "¿Olvidaste tu contraseña?",
+        "register": "¿No tienes una cuenta? Regístrate",
+        "login": "¿Ya tienes una cuenta? Inicia sesión",
+        "page": "Página",
+        "of": "de",
+        "go_to_page": "Ir a la página",
+        "records": "registros",
+        "showing": "Mostrando"
+    },
+    "hero": {
+        "login_title": "¡Bienvenido!",
+        "login_description": "A la nueva imagen del project management.",
+        "register_title": "¡Regístrate ahora!",
+        "register_description": "Comienza a disfrutar el project management."
+    },
+    "tables": {
+        "common": {
+            "actions": "Acciones",
+            "name": "Nombre",
+            "status": "Estado",
+            "country": "País",
+            "$createdAt": "Fecha de creación"
+        },
+        "team": {
+            "size": "Miembros"
+        },
+        "team_member": {}
+    },
+    "entities": {
+        "team": "Equipo",
+        "user": "Usuario",
+        "task": "Tarea",
+        "team_member": "Miembro del equipo",
+        "project": "Proyecto"
+    },
+    "status": {
+        "active": "Activo",
+        "inactive": "Inactivo"
+    }
+}

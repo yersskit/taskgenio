@@ -1,0 +1,69 @@
+{
+    "menu": {
+        "home": "Home",
+        "projects": "Progetti",
+        "teams": "Squadre"
+    },
+    "languages": {
+        "en": "English",
+        "de": "Deutsch",
+        "es": "Español",
+        "fr": "Français",
+        "zh": "中文",
+        "ja": "日本語",
+        "ru": "Русский",
+        "ar": "العربية",
+        "pt": "Português",
+        "ko": "한국어",
+        "it": "Italiano"
+    },
+    "errors": {
+        "no_error": " ",
+        "default_error": "Si è verificato un errore imprevisto. Per favore, riprova più tardi.",
+        "user_invalid_credentials": "Email o password non corretti.",
+        "user_already_exists": "L'email è già in uso.",
+        "general_unauthorized_scope": "Non hai il permesso di eseguire questa azione.",
+        "no_data_found": "Nessun record trovato.",
+        "error_login": "Errore durante l'accesso.",
+        "required_field": "Questo campo è obbligatorio.",
+        "invalid_email": "L'email non è valida.",
+        "one_uppercase": "Una maiuscola.",
+        "one_lowercase": "Una minuscola.",
+        "one_number": "Un numero.",
+        "one_special_character": "Un carattere speciale !@#$%^&*",
+        "minimum_password_characters": "Minimo 8 caratteri."
+    },
+    "actions": {
+        "logout": "Disconnetti",
+        "login": "Accedi",
+        "register": "Crea un account"
+    },
+    "labels": {
+        "search": "Cerca",
+        "home": "Home",
+        "admin": "Admin",
+        "password": "Password",
+        "email": "Email",
+        "name": "Nome",
+        "lastname": "Cognome",
+        "confirm_password": "Conferma password",
+        "forget": "Hai dimenticato la password?",
+        "register": "Non hai un account? Registrati",
+        "login": "Hai già un account? Accedi"
+    },
+    "hero": {
+        "login_title": "Benvenuto!",
+        "login_description": "Al nuovo aspetto della gestione dei progetti.",
+        "register_title": "Registrati ora!",
+        "register_description": "Inizia a goderti la gestione dei progetti."
+    },
+    "tables": {
+        "teams": {
+            "name": "Nome",
+            "size": "Membri",
+            "creation_date": "Data di creazione",
+            "status": "Stato",
+            "country": "Paese"
+        }
+    }
+}

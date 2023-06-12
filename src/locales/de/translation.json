@@ -1,0 +1,69 @@
+{
+    "menu": {
+        "home": "Start",
+        "projects": "Projekte",
+        "teams": "Ausrüstung"
+    },
+    "languages": {
+        "en": "English",
+        "de": "Deutsch",
+        "es": "Español",
+        "fr": "Français",
+        "zh": "中文",
+        "ja": "日本語",
+        "ru": "Русский",
+        "ar": "العربية",
+        "pt": "Português",
+        "ko": "한국어",
+        "it": "Italiano"
+    },
+    "errors": {
+        "no_error": " ",
+        "default_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal.",
+        "user_invalid_credentials": "E-Mail oder Passwort sind falsch.",
+        "user_already_exists": "Die E-Mail-Adresse ist bereits in Gebrauch.",
+        "general_unauthorized_scope": "Sie haben keine Berechtigung, diese Aktion durchzuführen.",
+        "no_data_found": "Keine Datensätze gefunden.",
+        "error_login": "Fehler beim Anmelden.",
+        "required_field": "Dieses Feld ist erforderlich.",
+        "invalid_email": "Die E-Mail-Adresse ist ungültig.",
+        "one_uppercase": "Ein Großbuchstabe.",
+        "one_lowercase": "Ein Kleinbuchstabe.",
+        "one_number": "Eine Zahl.",
+        "one_special_character": "Ein Sonderzeichen !@#$%^&*",
+        "minimum_password_characters": "Mindestens 8 Zeichen."
+    },
+    "actions": {
+        "logout": "Abmelden",
+        "login": "Anmelden",
+        "register": "Konto erstellen"
+    },
+    "labels": {
+        "search": "Suche",
+        "home": "Start",
+        "admin": "Administrator",
+        "password": "Passwort",
+        "email": "E-Mail",
+        "name": "Vorname",
+        "lastname": "Nachname",
+        "confirm_password": "Passwort bestätigen",
+        "forget": "Passwort vergessen?",
+        "register": "Noch kein Konto? Registrieren",
+        "login": "Schon ein Konto? Anmelden"
+    },
+    "hero": {
+        "login_title": "Willkommen!",
+        "login_description": "Zum neuen Erscheinungsbild des Projektmanagements.",
+        "register_title": "Jetzt registrieren!",
+        "register_description": "Beginnen Sie, das Projektmanagement zu genießen."
+    },
+    "tables": {
+        "teams": {
+            "name": "Name",
+            "size": "Mitglieder",
+            "creation_date": "Erstellungsdatum",
+            "status": "Status",
+            "country": "Land"
+        }
+    }
+}

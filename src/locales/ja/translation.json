@@ -1,0 +1,69 @@
+{
+    "menu": {
+        "home": "ホーム",
+        "projects": "プロジェクト",
+        "teams": "チーム"
+    },
+    "languages": {
+        "en": "English",
+        "de": "Deutsch",
+        "es": "Español",
+        "fr": "Français",
+        "zh": "中文",
+        "ja": "日本語",
+        "ru": "Русский",
+        "ar": "العربية",
+        "pt": "Português",
+        "ko": "한국어",
+        "it": "Italiano"
+    },
+    "errors": {
+        "no_error": " ",
+        "default_error": "予期しないエラーが発生しました。後でもう一度お試しください。",
+        "user_invalid_credentials": "メールアドレスまたはパスワードが間違っています。",
+        "user_already_exists": "このメールアドレスはすでに使用されています。",
+        "general_unauthorized_scope": "この操作を実行する権限がありません。",
+        "no_data_found": "レコードが見つかりません。",
+        "error_login": "ログイン中にエラーが発生しました。",
+        "required_field": "この項目は必須です。",
+        "invalid_email": "無効なメールアドレスです。",
+        "one_uppercase": "大文字1つ。",
+        "one_lowercase": "小文字1つ。",
+        "one_number": "数字1つ。",
+        "one_special_character": "特殊文字1つ !@#$%^&*",
+        "minimum_password_characters": "最低8文字。"
+    },
+    "actions": {
+        "logout": "ログアウト",
+        "login": "ログイン",
+        "register": "アカウントを作成"
+    },
+    "labels": {
+        "search": "検索",
+        "home": "ホーム",
+        "admin": "管理者",
+        "password": "パスワード",
+        "email": "メールアドレス",
+        "name": "名前",
+        "lastname": "苗字",
+        "confirm_password": "パスワードを確認",
+        "forget": "パスワードをお忘れですか？",
+        "register": "アカウントを持っていませんか？登録",
+        "login": "すでにアカウントをお持ちですか？ログイン"
+    },
+    "hero": {
+        "login_title": "ようこそ！",
+        "login_description": "プロジェクト管理の新しいルックへ。",
+        "register_title": "今すぐ登録！",
+        "register_description": "プロジェクト管理を楽しみ始めよう。"
+    },
+    "tables": {
+        "teams": {
+            "name": "名前",
+            "size": "メンバー",
+            "creation_date": "作成日",
+            "status": "ステータス",
+            "country": "国"
+        }
+    }
+}
