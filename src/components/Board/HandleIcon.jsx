@@ -1,5 +1,5 @@
-import React, { forwardRef } from "react";
-import { MdDragIndicator } from "react-icons/md";
+import React, { forwardRef } from 'react';
+import { MdDragIndicator } from 'react-icons/md';
 
 export const HandleIcon = forwardRef((props, ref) => {
   return (

@@ -14,28 +14,28 @@ import italian from './locales/it/translation.json';
 import french from './locales/fr/translation.json';
 
 i18n
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({
-        debug: true,
-        fallbackLng: 'en',
-        interpolation: {
-            escapeValue: false,
-        },
-        resources: {
-            en: { translation: english },
-            es: { translation: spanish },
-            de: { translation: german },
-            zh: { translation: chinese },
-            ja: { translation: japanese },
-            ru: { translation: russian },
-            ar: { translation: arabic },
-            pt: { translation: portuguese },
-            ko: { translation: korean },
-            it: { translation: italian },
-            fr: { translation: french },
-        },
-        load: 'languageOnly',
-    });
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    debug: true,
+    fallbackLng: 'en',
+    interpolation: {
+      escapeValue: false
+    },
+    resources: {
+      en: { translation: english },
+      es: { translation: spanish },
+      de: { translation: german },
+      zh: { translation: chinese },
+      ja: { translation: japanese },
+      ru: { translation: russian },
+      ar: { translation: arabic },
+      pt: { translation: portuguese },
+      ko: { translation: korean },
+      it: { translation: italian },
+      fr: { translation: french }
+    },
+    load: 'languageOnly'
+  });
 
 export default i18n;

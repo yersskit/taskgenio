@@ -1,5 +1,5 @@
 const Forget = () => {
-  return <div>Forget</div>
-}
+  return <div>Forget</div>;
+};
 
-export default Forget
+export default Forget;

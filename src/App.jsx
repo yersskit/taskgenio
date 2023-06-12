@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-import { HistoryRouter as Router } from "redux-first-history/rr6";
-import { store, history } from "./store";
-import Projects from "./views/Projects";
-import Home from "./views/Home";
-import Teams from "./views/Teams";
+import React, { useEffect } from 'react';
+import { Provider, useDispatch, useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import { HistoryRouter as Router } from 'redux-first-history/rr6';
+import { store, history } from './store';
+import Projects from './views/Projects';
+import Home from './views/Home';
+import Teams from './views/Teams';
 import {
   FORGET_PATH,
   HOME_PATH,
@@ -14,24 +14,21 @@ import {
   REGISTER_PATH,
   RESET_PATH,
   SETTINGS_PATH,
-  TEAMS_PATH,
-} from "./utils/routes";
-import WithUserRoutes from "./routes/WithUserRoutes";
-import NoSessionRoutes from "./routes/NoSessionRoutes";
-import AdminRoutes from "./routes/AdminRoutes";
-import { getLoggedInUser } from "./store/user";
-import Login from "./views/Login";
-import Register from "./views/Register";
-import Forget from "./views/Forget";
-import Reset from "./views/Reset";
-import {
-  decrementLoadingCounter,
-  incrementLoadingCounter,
-} from "./store/loader";
-import Loader from "./components/Common/Loader";
-import Team from "./views/Team";
-import Settings from "./views/Settings";
-import Project from "./views/Project";
+  TEAMS_PATH
+} from './utils/routes';
+import WithUserRoutes from './routes/WithUserRoutes';
+import NoSessionRoutes from './routes/NoSessionRoutes';
+import AdminRoutes from './routes/AdminRoutes';
+import { getLoggedInUser } from './store/user';
+import Login from './views/Login';
+import Register from './views/Register';
+import Forget from './views/Forget';
+import Reset from './views/Reset';
+import { decrementLoadingCounter, incrementLoadingCounter } from './store/loader';
+import Loader from './components/Common/Loader';
+import Team from './views/Team';
+import Settings from './views/Settings';
+import Project from './views/Project';
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();

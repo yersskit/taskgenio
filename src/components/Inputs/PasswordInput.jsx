@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   ONE_LOWERCASE,
   ONE_NUMBER,
@@ -6,10 +6,10 @@ import {
   ONE_UPPERCASE,
   MINIMUM_PASSWORD_CHARACTERS,
   MANDATORY_INDICATOR,
-  REQUIRED_FIELD,
-} from "../../utils/consts";
-import { useTranslation } from "react-i18next";
-import { inputSizes } from "../../utils/utils";
+  REQUIRED_FIELD
+} from '../../utils/consts';
+import { useTranslation } from 'react-i18next';
+import { inputSizes } from '../../utils/utils';
 
 const PasswordInput = ({
   name,
@@ -20,7 +20,7 @@ const PasswordInput = ({
   setErrors,
   disabled,
   showConstraints,
-  size,
+  size
 }) => {
   const { t } = useTranslation();
   const [valids, setValids] = useState([]);
@@ -30,7 +30,7 @@ const PasswordInput = ({
     ONE_NUMBER,
     ONE_UPPERCASE,
     MINIMUM_PASSWORD_CHARACTERS,
-    ONE_SPECIAL_CHARACTER,
+    ONE_SPECIAL_CHARACTER
   };
 
   const handleChange = (e) => {
@@ -97,9 +97,7 @@ const PasswordInput = ({
     <div className="flex flex-col justify-start items-start w-full">
       <label className="label w-full flex justify-start gap-[1px]">
         <span className="label-text">{t(`labels.${name}`)}</span>
-        {required && (
-          <span className="text-error text-xs">{MANDATORY_INDICATOR}</span>
-        )}
+        {required && <span className="text-error text-xs">{MANDATORY_INDICATOR}</span>}
       </label>
       <input
         disabled={disabled}
@@ -107,8 +105,8 @@ const PasswordInput = ({
         type="password"
         placeholder={t(`labels.${name}`)}
         className={`input input-bordered w-full outline-none focus:outline-none focus:ring-2 focus:ring-secondary ${
-          errors && errors.length > 0 && "input-error"
-        } ${inputSizes[size] ?? inputSizes["md"]}`}
+          errors && errors.length > 0 && 'input-error'
+        } ${inputSizes[size] ?? inputSizes['md']}`}
         name={name}
         id={name}
         value={value}
@@ -118,18 +116,15 @@ const PasswordInput = ({
         <div className="mt-1 flex w-full flex-wrap box-border px-1 gap-x-4 gap-y-px justify-between">
           {Object.keys(constraints).map((constraint, i) => {
             return (
-              <div
-                className="flex whitespace-nowrap min-w-[45%] items-center gap-1"
-                key={i}
-              >
+              <div className="flex whitespace-nowrap min-w-[45%] items-center gap-1" key={i}>
                 <div
                   className={`w-[8px] h-[8px] rounded-full 
               ${
                 errors && errors.includes(constraints[constraint])
-                  ? "bg-error"
+                  ? 'bg-error'
                   : valids.includes(constraints[constraint])
-                  ? "bg-success"
-                  : "bg-neutral"
+                  ? 'bg-success'
+                  : 'bg-neutral'
               } `}
                 />
                 <p className="text-[11px] text-neutral-400">

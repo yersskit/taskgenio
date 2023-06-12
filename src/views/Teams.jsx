@@ -1,17 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
-import Layout from "../components/Layout/Layout";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../components/Common/Modal";
-import { CREATE_MODE, INPUT_NAME, TEAM_ENTITY } from "../utils/consts";
-import TextInput from "./../components/Inputs/TextInput";
-import { createTeam, getTeams } from "../store/teams";
-import ViewHeader from "../components/Layout/ViewHeader";
-import ViewContent from "../components/Layout/ViewContent";
-import View from "../components/Layout/View";
-import Table from "./../components/Common/Table/Table";
-import { Link } from "react-router-dom";
-import { TEAMS_PATH } from "../utils/routes";
+import React, { useEffect, useState, useRef } from 'react';
+import Layout from '../components/Layout/Layout';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from '../components/Common/Modal';
+import { CREATE_MODE, INPUT_NAME, TEAM_ENTITY } from '../utils/consts';
+import TextInput from './../components/Inputs/TextInput';
+import { createTeam, getTeams } from '../store/teams';
+import ViewHeader from '../components/Layout/ViewHeader';
+import ViewContent from '../components/Layout/ViewContent';
+import View from '../components/Layout/View';
+import Table from './../components/Common/Table/Table';
+import { Link } from 'react-router-dom';
+import { TEAMS_PATH } from '../utils/routes';
 
 const Teams = () => {
   const { t } = useTranslation();
@@ -21,7 +21,7 @@ const Teams = () => {
   const { teams, isLoading, error } = useSelector((state) => state.teams);
 
   const [formData, setFormData] = useState({
-    name: "",
+    name: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -59,11 +59,11 @@ const Teams = () => {
       createTeamRef.current.checked = false;
     }
 
-    setFormData({ name: "" });
+    setFormData({ name: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: "" });
+    setFormData({ name: '' });
     createTeamRef.current.checked = true;
   };
 
@@ -78,13 +78,13 @@ const Teams = () => {
   return (
     <Layout>
       <View>
-        <ViewHeader title={t("menu.teams")}>
+        <ViewHeader title={t('menu.teams')}>
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
             disabled={error || isLoading}
           >
-            {t(`actions.${CREATE_MODE}`) + " " + t(`entities.${TEAM_ENTITY}`)}
+            {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${TEAM_ENTITY}`)}
           </button>
         </ViewHeader>
         <ViewContent>
@@ -109,9 +109,9 @@ const Teams = () => {
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? "loading" : ""}`}
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
                 >
-                  {t("actions.save")}
+                  {t('actions.save')}
                 </button>
               </div>
             </form>
@@ -119,22 +119,14 @@ const Teams = () => {
           <Table
             name={TEAM_ENTITY}
             data={teams}
-            hidden={[
-              "$id",
-              "$updatedAt",
-              "$permissions",
-              "$collectionId",
-              "$databaseId",
-            ]}
+            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId']}
             customCells={[
               {
-                column: "name",
+                column: 'name',
                 component: (row) => (
-                  <Link to={`${TEAMS_PATH}/${row.$id}?teamName=${row.name}`}>
-                    {row.name}
-                  </Link>
-                ),
-              },
+                  <Link to={`${TEAMS_PATH}/${row.$id}?teamName=${row.name}`}>{row.name}</Link>
+                )
+              }
             ]}
           />
         </ViewContent>

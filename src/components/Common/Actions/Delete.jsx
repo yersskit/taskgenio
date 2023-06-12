@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import DeleteIcon from "../Icons/DeleteIcon";
-import Modal from "../Modal";
-import { DELETE_MODE } from "../../../utils/consts";
-import { useTranslation } from "react-i18next";
-import SecondaryButton from "../Buttons/SecondaryButton";
-import ErrorButton from "../Buttons/ErrorButton";
+import React, { useRef } from 'react';
+import DeleteIcon from '../Icons/DeleteIcon';
+import Modal from '../Modal';
+import { DELETE_MODE } from '../../../utils/consts';
+import { useTranslation } from 'react-i18next';
+import SecondaryButton from '../Buttons/SecondaryButton';
+import ErrorButton from '../Buttons/ErrorButton';
 
 const Delete = ({ action, id, entity }) => {
   const { t } = useTranslation();
@@ -21,8 +21,8 @@ const Delete = ({ action, id, entity }) => {
         className="border-2 border-red-500"
       >
         <p className="text-red-500 font-semibold mt-6">
-          {t("messages.delete", {
-            entity: t(`entities.${entity}`),
+          {t('messages.delete', {
+            entity: t(`entities.${entity}`)
           })}
         </p>
         <div className="flex justify-between w-full items-end gap-4 mt-6">
@@ -33,7 +33,7 @@ const Delete = ({ action, id, entity }) => {
               }
             }}
           >
-            {t("actions.cancel")}
+            {t('actions.cancel')}
           </SecondaryButton>
           <ErrorButton
             onClick={() => {
@@ -43,7 +43,7 @@ const Delete = ({ action, id, entity }) => {
               }
             }}
           >
-            {t("actions.delete")}
+            {t('actions.delete')}
           </ErrorButton>
         </div>
       </Modal>

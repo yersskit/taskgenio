@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   closestCenter,
   pointerWithin,
@@ -12,28 +12,28 @@ import {
   useSensors,
   useSensor,
   MeasuringStrategy,
-  defaultDropAnimationSideEffects,
-} from "@dnd-kit/core";
+  defaultDropAnimationSideEffects
+} from '@dnd-kit/core';
 import {
   SortableContext,
   arrayMove,
   verticalListSortingStrategy,
-  horizontalListSortingStrategy,
-} from "@dnd-kit/sortable";
+  horizontalListSortingStrategy
+} from '@dnd-kit/sortable';
 
-import DroppableContainer from "./DroppableContainer";
-import SortableItem from "./SortableItem";
-import ContainerDragOverlay from "./ContainerDragOverlay";
-import ItemDragOverlay from "./ItemDragOverlay";
+import DroppableContainer from './DroppableContainer';
+import SortableItem from './SortableItem';
+import ContainerDragOverlay from './ContainerDragOverlay';
+import ItemDragOverlay from './ItemDragOverlay';
 
 const dropAnimation = {
   sideEffects: defaultDropAnimationSideEffects({
     styles: {
       active: {
-        opacity: "0.5",
-      },
-    },
-  }),
+        opacity: '0.5'
+      }
+    }
+  })
 };
 
 const MultipleContainers = ({ items, setItems, modifiers }) => {
@@ -48,18 +48,14 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
       if (activeId && activeId in items) {
         return closestCenter({
           ...args,
-          droppableContainers: args.droppableContainers.filter(
-            (container) => container.id in items
-          ),
+          droppableContainers: args.droppableContainers.filter((container) => container.id in items)
         });
       }
 
       const pointerIntersections = pointerWithin(args);
       const intersections =
-        pointerIntersections.length > 0
-          ? pointerIntersections
-          : rectIntersection(args);
-      let overId = getFirstCollision(intersections, "id");
+        pointerIntersections.length > 0 ? pointerIntersections : rectIntersection(args);
+      let overId = getFirstCollision(intersections, 'id');
 
       if (overId != null) {
         if (overId in items) {
@@ -70,9 +66,8 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
               ...args,
               droppableContainers: args.droppableContainers.filter(
                 (container) =>
-                  container.id !== overId &&
-                  containerItems.some((item) => item.id === container.id)
-              ),
+                  container.id !== overId && containerItems.some((item) => item.id === container.id)
+              )
             })[0]?.id;
           }
         }
@@ -126,8 +121,8 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
       collisionDetection={collisionDetectionStrategy}
       measuring={{
         droppable: {
-          strategy: MeasuringStrategy.Always,
-        },
+          strategy: MeasuringStrategy.Always
+        }
       }}
       onDragStart={({ active }) => {
         setActiveId(active.id);
@@ -151,9 +146,7 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
             const activeItems = items[activeContainer];
             const overItems = items[overContainer];
             const overIndex = overItems.findIndex((item) => item.id === overId);
-            const activeIndex = activeItems.findIndex(
-              (item) => item.id === active.id
-            );
+            const activeIndex = activeItems.findIndex((item) => item.id === active.id);
 
             let newIndex;
 
@@ -163,30 +156,23 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
               const isBelowOverItem =
                 over &&
                 active.rect.current.translated &&
-                active.rect.current.translated.top >
-                  over.rect.top + over.rect.height;
+                active.rect.current.translated.top > over.rect.top + over.rect.height;
 
               const modifier = isBelowOverItem ? 1 : 0;
 
-              newIndex =
-                overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+              newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
             }
 
             recentlyMovedToNewContainer.current = true;
 
             return {
               ...items,
-              [activeContainer]: items[activeContainer].filter(
-                (item) => item.id !== active.id
-              ),
+              [activeContainer]: items[activeContainer].filter((item) => item.id !== active.id),
               [overContainer]: [
                 ...items[overContainer].slice(0, newIndex),
                 items[activeContainer][activeIndex],
-                ...items[overContainer].slice(
-                  newIndex,
-                  items[overContainer].length
-                ),
-              ],
+                ...items[overContainer].slice(newIndex, items[overContainer].length)
+              ]
             };
           });
         }
@@ -218,21 +204,13 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
         const overContainer = findContainer(overId);
 
         if (overContainer) {
-          const activeIndex = items[activeContainer].findIndex(
-            (item) => item.id === active.id
-          );
-          const overIndex = items[overContainer].findIndex(
-            (item) => item.id === overId
-          );
+          const activeIndex = items[activeContainer].findIndex((item) => item.id === active.id);
+          const overIndex = items[overContainer].findIndex((item) => item.id === overId);
 
           if (activeIndex !== overIndex) {
             setItems((items) => ({
               ...items,
-              [overContainer]: arrayMove(
-                items[overContainer],
-                activeIndex,
-                overIndex
-              ),
+              [overContainer]: arrayMove(items[overContainer], activeIndex, overIndex)
             }));
           }
         }
@@ -242,10 +220,7 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
       modifiers={modifiers}
     >
       <div className="flex gap-4 w-full h-full overflow-x-auto">
-        <SortableContext
-          items={[...containers]}
-          strategy={horizontalListSortingStrategy}
-        >
+        <SortableContext items={[...containers]} strategy={horizontalListSortingStrategy}>
           {containers.map((containerId) => (
             <DroppableContainer
               key={containerId}
@@ -253,10 +228,7 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
               label={`Column ${containerId}`}
               items={items[containerId]}
             >
-              <SortableContext
-                items={items[containerId]}
-                strategy={verticalListSortingStrategy}
-              >
+              <SortableContext items={items[containerId]} strategy={verticalListSortingStrategy}>
                 {items[containerId].map((item, index) => {
                   return (
                     <SortableItem

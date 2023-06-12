@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
-import Layout from "../components/Layout/Layout";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../components/Common/Modal";
-import { CREATE_MODE, INPUT_NAME, PROJECT_ENTITY } from "../utils/consts";
-import TextInput from "./../components/Inputs/TextInput";
-import ViewHeader from "../components/Layout/ViewHeader";
-import ViewContent from "../components/Layout/ViewContent";
-import View from "../components/Layout/View";
-import Table from "./../components/Common/Table/Table";
-import Delete from "../components/Common/Actions/Delete";
-import { createProject, getProjects } from "../store/projects";
-import { PROJECTS_PATH } from "../utils/routes";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useRef } from 'react';
+import Layout from '../components/Layout/Layout';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from '../components/Common/Modal';
+import { CREATE_MODE, INPUT_NAME, PROJECT_ENTITY } from '../utils/consts';
+import TextInput from './../components/Inputs/TextInput';
+import ViewHeader from '../components/Layout/ViewHeader';
+import ViewContent from '../components/Layout/ViewContent';
+import View from '../components/Layout/View';
+import Table from './../components/Common/Table/Table';
+import Delete from '../components/Common/Actions/Delete';
+import { createProject, getProjects } from '../store/projects';
+import { PROJECTS_PATH } from '../utils/routes';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -22,7 +22,7 @@ const Projects = () => {
   const { projects, error, isLoading } = useSelector((state) => state.projects);
 
   const [formData, setFormData] = useState({
-    name: "",
+    name: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -60,11 +60,11 @@ const Projects = () => {
       createProjectRef.current.checked = false;
     }
 
-    setFormData({ name: "" });
+    setFormData({ name: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: "" });
+    setFormData({ name: '' });
     createProjectRef.current.checked = true;
   };
 
@@ -79,15 +79,13 @@ const Projects = () => {
   return (
     <Layout>
       <View>
-        <ViewHeader title={t("menu.projects")}>
+        <ViewHeader title={t('menu.projects')}>
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
             disabled={error || isLoading}
           >
-            {t(`actions.${CREATE_MODE}`) +
-              " " +
-              t(`entities.${PROJECT_ENTITY}`)}
+            {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${PROJECT_ENTITY}`)}
           </button>
         </ViewHeader>
         <ViewContent>
@@ -112,9 +110,9 @@ const Projects = () => {
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? "loading" : ""}`}
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
                 >
-                  {t("actions.save")}
+                  {t('actions.save')}
                 </button>
               </div>
             </form>
@@ -122,32 +120,21 @@ const Projects = () => {
           <Table
             name={PROJECT_ENTITY}
             data={projects}
-            hidden={[
-              "$id",
-              "$updatedAt",
-              "$permissions",
-              "$collectionId",
-              "$databaseId",
-              "teamId",
-            ]}
+            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId', 'teamId']}
             customCells={[
               {
-                column: "name",
+                column: 'name',
                 component: (row) => (
-                  <Link
-                    to={`${PROJECTS_PATH}/${row.$id}?projectName=${row.name}`}
-                  >
-                    {row.name}
-                  </Link>
-                ),
-              },
+                  <Link to={`${PROJECTS_PATH}/${row.$id}?projectName=${row.name}`}>{row.name}</Link>
+                )
+              }
             ]}
             controls={(row) => (
               <>
                 <Delete
                   id={row.$id}
                   action={() => {
-                    console.log("delete", row.$id);
+                    console.log('delete', row.$id);
                   }}
                   entity={PROJECT_ENTITY}
                 />

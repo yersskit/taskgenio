@@ -1,5 +1,5 @@
-import React from "react";
-import { HiOutlineArrowLeft } from "react-icons/hi2";
+import React from 'react';
+import { HiOutlineArrowLeft } from 'react-icons/hi2';
 
 const ArrowLeftIcon = ({ ...rest }) => {
   return <HiOutlineArrowLeft {...rest} />;

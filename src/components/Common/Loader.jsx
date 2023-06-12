@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { AiOutlineLoading } from "react-icons/ai";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 const Loader = () => {
   const loadingCounter = useSelector((state) => state.loader.loadingCounter);

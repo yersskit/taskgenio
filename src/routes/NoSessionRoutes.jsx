@@ -1,6 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { HOME_PATH } from "../utils/routes";
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { HOME_PATH } from '../utils/routes';
 
 const NoSessionRoutes = () => {
   const { session } = useSelector((state) => state.user);

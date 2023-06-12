@@ -1,26 +1,19 @@
-import React from "react";
-import { CSS } from "@dnd-kit/utilities";
-import { defaultAnimateLayoutChanges, useSortable } from "@dnd-kit/sortable";
-import { Container } from "./Container";
+import React from 'react';
+import { CSS } from '@dnd-kit/utilities';
+import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
+import { Container } from './Container';
 
 const DroppableContainer = ({ children, disabled, id, items, label }) => {
   const animateLayoutChanges = (args) =>
     defaultAnimateLayoutChanges({ ...args, wasDragging: true });
 
-  const {
-    attributes,
-    isDragging,
-    listeners,
-    setNodeRef,
-    transition,
-    transform,
-  } = useSortable({
+  const { attributes, isDragging, listeners, setNodeRef, transition, transform } = useSortable({
     id,
     data: {
-      type: "container",
-      children: items,
+      type: 'container',
+      children: items
     },
-    animateLayoutChanges,
+    animateLayoutChanges
   });
 
   return (
@@ -29,11 +22,11 @@ const DroppableContainer = ({ children, disabled, id, items, label }) => {
       style={{
         transition,
         transform: CSS.Translate.toString(transform),
-        opacity: isDragging ? 0.5 : undefined,
+        opacity: isDragging ? 0.5 : undefined
       }}
       handleProps={{
         ...attributes,
-        ...listeners,
+        ...listeners
       }}
       label={label}
     >

@@ -1,69 +1,69 @@
 {
-    "menu": {
-        "home": "首页",
-        "projects": "项目",
-        "teams": "团队"
-    },
-    "languages": {
-        "en": "English",
-        "de": "Deutsch",
-        "es": "Español",
-        "fr": "Français",
-        "zh": "中文",
-        "ja": "日本語",
-        "ru": "Русский",
-        "ar": "العربية",
-        "pt": "Português",
-        "ko": "한국어",
-        "it": "Italiano"
-    },
-    "errors": {
-        "no_error": " ",
-        "default_error": "发生意外错误。请稍后再试。",
-        "user_invalid_credentials": "电子邮件或密码错误。",
-        "user_already_exists": "电子邮件已被使用。",
-        "general_unauthorized_scope": "您没有权限执行此操作。",
-        "no_data_found": "找不到记录。",
-        "error_login": "登录时出错。",
-        "required_field": "此字段为必填项。",
-        "invalid_email": "电子邮件无效。",
-        "one_uppercase": "一个大写字母。",
-        "one_lowercase": "一个小写字母。",
-        "one_number": "一个数字。",
-        "one_special_character": "一个特殊字符 !@#$%^&*",
-        "minimum_password_characters": "最少8个字符。"
-    },
-    "actions": {
-        "logout": "登出",
-        "login": "登录",
-        "register": "创建账户"
-    },
-    "labels": {
-        "search": "搜索",
-        "home": "主页",
-        "admin": "管理员",
-        "password": "密码",
-        "email": "电子邮件",
-        "name": "名字",
-        "lastname": "姓氏",
-        "confirm_password": "确认密码",
-        "forget": "忘记密码？",
-        "register": "没有账户？注册",
-        "login": "已有账户？登录"
-    },
-    "hero": {
-        "login_title": "欢迎！",
-        "login_description": "进入项目管理的新面貌。",
-        "register_title": "立即注册！",
-        "register_description": "开始享受项目管理。"
-    },
-    "tables": {
-        "teams": {
-            "name": "名称",
-            "size": "成员",
-            "creation_date": "创建日期",
-            "status": "状态",
-            "country": "国家"
-        }
+  "menu": {
+    "home": "首页",
+    "projects": "项目",
+    "teams": "团队"
+  },
+  "languages": {
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "zh": "中文",
+    "ja": "日本語",
+    "ru": "Русский",
+    "ar": "العربية",
+    "pt": "Português",
+    "ko": "한국어",
+    "it": "Italiano"
+  },
+  "errors": {
+    "no_error": " ",
+    "default_error": "发生意外错误。请稍后再试。",
+    "user_invalid_credentials": "电子邮件或密码错误。",
+    "user_already_exists": "电子邮件已被使用。",
+    "general_unauthorized_scope": "您没有权限执行此操作。",
+    "no_data_found": "找不到记录。",
+    "error_login": "登录时出错。",
+    "required_field": "此字段为必填项。",
+    "invalid_email": "电子邮件无效。",
+    "one_uppercase": "一个大写字母。",
+    "one_lowercase": "一个小写字母。",
+    "one_number": "一个数字。",
+    "one_special_character": "一个特殊字符 !@#$%^&*",
+    "minimum_password_characters": "最少8个字符。"
+  },
+  "actions": {
+    "logout": "登出",
+    "login": "登录",
+    "register": "创建账户"
+  },
+  "labels": {
+    "search": "搜索",
+    "home": "主页",
+    "admin": "管理员",
+    "password": "密码",
+    "email": "电子邮件",
+    "name": "名字",
+    "lastname": "姓氏",
+    "confirm_password": "确认密码",
+    "forget": "忘记密码？",
+    "register": "没有账户？注册",
+    "login": "已有账户？登录"
+  },
+  "hero": {
+    "login_title": "欢迎！",
+    "login_description": "进入项目管理的新面貌。",
+    "register_title": "立即注册！",
+    "register_description": "开始享受项目管理。"
+  },
+  "tables": {
+    "teams": {
+      "name": "名称",
+      "size": "成员",
+      "creation_date": "创建日期",
+      "status": "状态",
+      "country": "国家"
     }
+  }
 }

@@ -1,12 +1,12 @@
-import React from "react";
-import { langs } from "../../utils/languages";
-import { useTranslation } from "react-i18next";
-import { HiOutlineTranslate, HiOutlineChevronDown } from "react-icons/hi";
+import React from 'react';
+import { langs } from '../../utils/languages';
+import { useTranslation } from 'react-i18next';
+import { HiOutlineTranslate, HiOutlineChevronDown } from 'react-icons/hi';
 
 const LanguageSelector = () => {
   const { t, i18n } = useTranslation();
 
-  const [currentLang] = i18n.language.split("-");
+  const [currentLang] = i18n.language.split('-');
 
   return (
     <div className="dropdown dropdown-end">
@@ -25,9 +25,7 @@ const LanguageSelector = () => {
           return (
             <li
               key={lng}
-              onClick={
-                i18n.language === lng ? null : () => i18n.changeLanguage(lng)
-              }
+              onClick={i18n.language === lng ? null : () => i18n.changeLanguage(lng)}
               className={`whitespace-nowrap items-center btn btn-sm normal-case flex flex-row justify-end rounded gap-4 text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}
             >
               {currentLang === lng && (

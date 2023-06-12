@@ -1,69 +1,69 @@
 {
-    "menu": {
-        "home": "Accueil",
-        "projects": "Projets",
-        "teams": "Équipes"
-    },
-    "languages": {
-        "en": "English",
-        "de": "Deutsch",
-        "es": "Español",
-        "fr": "Français",
-        "zh": "中文",
-        "ja": "日本語",
-        "ru": "Русский",
-        "ar": "العربية",
-        "pt": "Português",
-        "ko": "한국어",
-        "it": "Italiano"
-    },
-    "errors": {
-        "no_error": " ",
-        "default_error": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard.",
-        "user_invalid_credentials": "E-mail ou mot de passe incorrect.",
-        "user_already_exists": "L'e-mail est déjà utilisé.",
-        "general_unauthorized_scope": "Vous n'avez pas la permission d'effectuer cette action.",
-        "no_data_found": "Aucun enregistrement trouvé.",
-        "error_login": "Erreur lors de la connexion.",
-        "required_field": "Ce champ est requis.",
-        "invalid_email": "L'e-mail n'est pas valide.",
-        "one_uppercase": "Une majuscule.",
-        "one_lowercase": "Une minuscule.",
-        "one_number": "Un chiffre.",
-        "one_special_character": "Un caractère spécial !@#$%^&*",
-        "minimum_password_characters": "Minimum 8 caractères."
-    },
-    "actions": {
-        "logout": "Déconnexion",
-        "login": "Connexion",
-        "register": "Créer un compte"
-    },
-    "labels": {
-        "search": "Recherche",
-        "home": "Accueil",
-        "admin": "Admin",
-        "password": "Mot de passe",
-        "email": "E-mail",
-        "name": "Prénom",
-        "lastname": "Nom",
-        "confirm_password": "Confirmer le mot de passe",
-        "forget": "Mot de passe oublié?",
-        "register": "Pas de compte? Inscrivez-vous",
-        "login": "Vous avez déjà un compte? Connectez-vous"
-    },
-    "hero": {
-        "login_title": "Bienvenue!",
-        "login_description": "Dans la nouvelle apparence de la gestion de projet.",
-        "register_title": "Inscrivez-vous maintenant!",
-        "register_description": "Commencez à profiter de la gestion de projet."
-    },
-    "tables": {
-        "teams": {
-            "name": "Nom",
-            "size": "Membres",
-            "creation_date": "Date de création",
-            "status": "Statut",
-            "country": "Pays"
-        }
+  "menu": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "teams": "Équipes"
+  },
+  "languages": {
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "zh": "中文",
+    "ja": "日本語",
+    "ru": "Русский",
+    "ar": "العربية",
+    "pt": "Português",
+    "ko": "한국어",
+    "it": "Italiano"
+  },
+  "errors": {
+    "no_error": " ",
+    "default_error": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard.",
+    "user_invalid_credentials": "E-mail ou mot de passe incorrect.",
+    "user_already_exists": "L'e-mail est déjà utilisé.",
+    "general_unauthorized_scope": "Vous n'avez pas la permission d'effectuer cette action.",
+    "no_data_found": "Aucun enregistrement trouvé.",
+    "error_login": "Erreur lors de la connexion.",
+    "required_field": "Ce champ est requis.",
+    "invalid_email": "L'e-mail n'est pas valide.",
+    "one_uppercase": "Une majuscule.",
+    "one_lowercase": "Une minuscule.",
+    "one_number": "Un chiffre.",
+    "one_special_character": "Un caractère spécial !@#$%^&*",
+    "minimum_password_characters": "Minimum 8 caractères."
+  },
+  "actions": {
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "register": "Créer un compte"
+  },
+  "labels": {
+    "search": "Recherche",
+    "home": "Accueil",
+    "admin": "Admin",
+    "password": "Mot de passe",
+    "email": "E-mail",
+    "name": "Prénom",
+    "lastname": "Nom",
+    "confirm_password": "Confirmer le mot de passe",
+    "forget": "Mot de passe oublié?",
+    "register": "Pas de compte? Inscrivez-vous",
+    "login": "Vous avez déjà un compte? Connectez-vous"
+  },
+  "hero": {
+    "login_title": "Bienvenue!",
+    "login_description": "Dans la nouvelle apparence de la gestion de projet.",
+    "register_title": "Inscrivez-vous maintenant!",
+    "register_description": "Commencez à profiter de la gestion de projet."
+  },
+  "tables": {
+    "teams": {
+      "name": "Nom",
+      "size": "Membres",
+      "creation_date": "Date de création",
+      "status": "Statut",
+      "country": "Pays"
     }
+  }
 }

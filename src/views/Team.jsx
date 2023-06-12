@@ -1,18 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
-import Layout from "../components/Layout/Layout";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../components/Common/Modal";
-import { CREATE_MODE, INPUT_NAME, TEAM_MEMBER_ENTITY } from "../utils/consts";
-import TextInput from "./../components/Inputs/TextInput";
-import { createTeamMember, getTeamMembers } from "../store/teams";
-import ViewHeader from "../components/Layout/ViewHeader";
-import ViewContent from "../components/Layout/ViewContent";
-import View from "../components/Layout/View";
-import Table from "./../components/Common/Table/Table";
-import { useParams } from "react-router-dom";
-import useSearchParams from "../hooks/useSearchParams";
-import Delete from "../components/Common/Actions/Delete";
+import React, { useEffect, useState, useRef } from 'react';
+import Layout from '../components/Layout/Layout';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from '../components/Common/Modal';
+import { CREATE_MODE, INPUT_NAME, TEAM_MEMBER_ENTITY } from '../utils/consts';
+import TextInput from './../components/Inputs/TextInput';
+import { createTeamMember, getTeamMembers } from '../store/teams';
+import ViewHeader from '../components/Layout/ViewHeader';
+import ViewContent from '../components/Layout/ViewContent';
+import View from '../components/Layout/View';
+import Table from './../components/Common/Table/Table';
+import { useParams } from 'react-router-dom';
+import useSearchParams from '../hooks/useSearchParams';
+import Delete from '../components/Common/Actions/Delete';
 
 const Team = () => {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ const Team = () => {
   const { teamMembers, isLoading, error } = useSelector((state) => state.teams);
 
   const [formData, setFormData] = useState({
-    name: "",
+    name: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -63,11 +63,11 @@ const Team = () => {
       createTeamMemberRef.current.checked = false;
     }
 
-    setFormData({ name: "" });
+    setFormData({ name: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: "" });
+    setFormData({ name: '' });
     createTeamMemberRef.current.checked = true;
   };
 
@@ -82,15 +82,13 @@ const Team = () => {
   return (
     <Layout>
       <View>
-        <ViewHeader title={t("menu.teamMembers")} name={getParam("teamName")}>
+        <ViewHeader title={t('menu.teamMembers')} name={getParam('teamName')}>
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
             disabled={error || isLoading}
           >
-            {t(`actions.${CREATE_MODE}`) +
-              " " +
-              t(`entities.${TEAM_MEMBER_ENTITY}`)}
+            {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${TEAM_MEMBER_ENTITY}`)}
           </button>
         </ViewHeader>
         <ViewContent>
@@ -115,9 +113,9 @@ const Team = () => {
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? "loading" : ""}`}
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
                 >
-                  {t("actions.save")}
+                  {t('actions.save')}
                 </button>
               </div>
             </form>
@@ -125,20 +123,13 @@ const Team = () => {
           <Table
             name={TEAM_MEMBER_ENTITY}
             data={teamMembers}
-            hidden={[
-              "$id",
-              "$updatedAt",
-              "$permissions",
-              "$collectionId",
-              "$databaseId",
-              "teamId",
-            ]}
+            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId', 'teamId']}
             controls={(row) => (
               <>
                 <Delete
                   id={row.$id}
                   action={() => {
-                    console.log("delete", row.$id);
+                    console.log('delete', row.$id);
                   }}
                   entity={TEAM_MEMBER_ENTITY}
                 />

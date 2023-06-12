@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const InfoButton = ({ disabled, onClick, isLoading, children }) => {
   return (
@@ -6,7 +6,7 @@ const InfoButton = ({ disabled, onClick, isLoading, children }) => {
       type="button"
       disabled={disabled || isLoading}
       onClick={onClick}
-      className={`btn btn-info ${isLoading ? "loading" : ""}`}
+      className={`btn btn-info ${isLoading ? 'loading' : ''}`}
     >
       {children}
     </button>

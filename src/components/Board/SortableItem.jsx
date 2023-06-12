@@ -1,6 +1,6 @@
-import { useSortable } from "@dnd-kit/sortable";
-import React, { useEffect, useState } from "react";
-import { Item } from "./Item";
+import { useSortable } from '@dnd-kit/sortable';
+import React, { useEffect, useState } from 'react';
+import { Item } from './Item';
 
 const SortableItem = ({ disabled, id, index }) => {
   function useMountStatus() {
@@ -14,15 +14,8 @@ const SortableItem = ({ disabled, id, index }) => {
     return isMounted;
   }
 
-  const {
-    setNodeRef,
-    listeners,
-    isDragging,
-    isSorting,
-    transform,
-    transition,
-  } = useSortable({
-    id,
+  const { setNodeRef, listeners, isDragging, isSorting, transform, transition } = useSortable({
+    id
   });
   const mounted = useMountStatus();
   const mountedWhileDragging = isDragging && !mounted;

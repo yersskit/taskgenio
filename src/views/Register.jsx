@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
-import TextInput from "../components/Inputs/TextInput";
-import EmailInput from "../components/Inputs/EmailInput";
-import { INPUT_NAME, INPUT_EMAIL, INPUT_PASSWORD } from "../utils/consts";
-import PasswordInput from "../components/Inputs/PasswordInput";
-import { useDispatch, useSelector } from "react-redux";
-import { createUser } from "./../store/user";
-import { LOGIN_PATH, HOME_PATH } from "../utils/routes";
-import { useTranslation } from "react-i18next";
+import { useState, useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import TextInput from '../components/Inputs/TextInput';
+import EmailInput from '../components/Inputs/EmailInput';
+import { INPUT_NAME, INPUT_EMAIL, INPUT_PASSWORD } from '../utils/consts';
+import PasswordInput from '../components/Inputs/PasswordInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser } from './../store/user';
+import { LOGIN_PATH, HOME_PATH } from '../utils/routes';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -65,8 +65,8 @@ const Register = () => {
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">{t("hero.register_title")}</h1>
-          <p className="py-6">{t("hero.register_description")}</p>
+          <h1 className="text-5xl font-bold">{t('hero.register_title')}</h1>
+          <p className="py-6">{t('hero.register_description')}</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
           <div className="card-body">
@@ -99,25 +99,21 @@ const Register = () => {
                 setErrors={setErrors}
                 showConstraints={true}
               />
-              {error && (
-                <p className="text-error text-xs mt-2">
-                  {t(`errors.${error}`)}
-                </p>
-              )}
+              {error && <p className="text-error text-xs mt-2">{t(`errors.${error}`)}</p>}
               <div className="flex flex-col mt-6">
                 <button
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? "loading" : ""}`}
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
                 >
-                  {t("actions.register")}
+                  {t('actions.register')}
                 </button>
               </div>
             </form>
             <div className="flex justify-end items-end mt-2">
               <Link to={LOGIN_PATH} className="label-text-alt link link-hover">
-                {t("labels.login")}
+                {t('labels.login')}
               </Link>
             </div>
           </div>

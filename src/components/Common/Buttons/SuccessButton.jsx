@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SuccessButton = ({ disabled, onClick, isLoading, children }) => {
   return (
@@ -6,7 +6,7 @@ const SuccessButton = ({ disabled, onClick, isLoading, children }) => {
       type="button"
       disabled={disabled || isLoading}
       onClick={onClick}
-      className={`btn btn-success ${isLoading ? "loading" : ""}`}
+      className={`btn btn-success ${isLoading ? 'loading' : ''}`}
     >
       {children}
     </button>

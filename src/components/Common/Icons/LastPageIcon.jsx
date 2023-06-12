@@ -1,5 +1,5 @@
-import React from "react";
-import { FiChevronsRight } from "react-icons/fi";
+import React from 'react';
+import { FiChevronsRight } from 'react-icons/fi';
 
 const NextPageIcon = () => {
   return <FiChevronsRight />;

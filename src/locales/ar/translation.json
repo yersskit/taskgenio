@@ -1,69 +1,69 @@
 {
-    "menu": {
-        "home": "الرئيسية",
-        "projects": "المشاريع",
-        "teams": "الفرق"
-    },
-    "languages": {
-        "en": "English",
-        "de": "Deutsch",
-        "es": "Español",
-        "fr": "Français",
-        "zh": "中文",
-        "ja": "日本語",
-        "ru": "Русский",
-        "ar": "العربية",
-        "pt": "Português",
-        "ko": "한국어",
-        "it": "Italiano"
-    },
-    "errors": {
-        "no_error": " ",
-        "default_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى في وقت لاحق.",
-        "user_invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-        "user_already_exists": "البريد الإلكتروني قيد الاستخدام بالفعل.",
-        "general_unauthorized_scope": "ليس لديك إذن لإجراء هذا الإجراء.",
-        "no_data_found": "لم يتم العثور على سجلات.",
-        "error_login": "خطأ أثناء تسجيل الدخول.",
-        "required_field": "هذا الحقل مطلوب.",
-        "invalid_email": "البريد الإلكتروني غير صالح.",
-        "one_uppercase": "حرف كبير واحد.",
-        "one_lowercase": "حرف صغير واحد.",
-        "one_number": "رقم واحد.",
-        "one_special_character": "رمز خاص واحد !@#$%^&*",
-        "minimum_password_characters": "الحد الأدنى 8 أحرف."
-    },
-    "actions": {
-        "logout": "تسجيل الخروج",
-        "login": "تسجيل الدخول",
-        "register": "إنشاء حساب"
-    },
-    "labels": {
-        "search": "بحث",
-        "home": "الصفحة الرئيسية",
-        "admin": "مدير",
-        "password": "كلمة المرور",
-        "email": "البريد الإلكتروني",
-        "name": "الاسم",
-        "lastname": "اللقب",
-        "confirm_password": "تأكيد كلمة المرور",
-        "forget": "هل نسيت كلمة المرور؟",
-        "register": "ليس لديك حساب؟ سجل",
-        "login": "هل لديك حساب بالفعل؟ تسجيل الدخول"
-    },
-    "hero": {
-        "login_title": "مرحبا!",
-        "login_description": "في الصورة الجديدة لإدارة المشاريع.",
-        "register_title": "سجل الآن!",
-        "register_description": "ابدأ في الاستمتاع بإدارة المشاريع."
-    },
-    "tables": {
-        "teams": {
-            "name": "الاسم",
-            "size": "الأعضاء",
-            "creation_date": "تاريخ الإنشاء",
-            "status": "الحالة",
-            "country": "البلد"
-        }
+  "menu": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "teams": "الفرق"
+  },
+  "languages": {
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "zh": "中文",
+    "ja": "日本語",
+    "ru": "Русский",
+    "ar": "العربية",
+    "pt": "Português",
+    "ko": "한국어",
+    "it": "Italiano"
+  },
+  "errors": {
+    "no_error": " ",
+    "default_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى في وقت لاحق.",
+    "user_invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "user_already_exists": "البريد الإلكتروني قيد الاستخدام بالفعل.",
+    "general_unauthorized_scope": "ليس لديك إذن لإجراء هذا الإجراء.",
+    "no_data_found": "لم يتم العثور على سجلات.",
+    "error_login": "خطأ أثناء تسجيل الدخول.",
+    "required_field": "هذا الحقل مطلوب.",
+    "invalid_email": "البريد الإلكتروني غير صالح.",
+    "one_uppercase": "حرف كبير واحد.",
+    "one_lowercase": "حرف صغير واحد.",
+    "one_number": "رقم واحد.",
+    "one_special_character": "رمز خاص واحد !@#$%^&*",
+    "minimum_password_characters": "الحد الأدنى 8 أحرف."
+  },
+  "actions": {
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب"
+  },
+  "labels": {
+    "search": "بحث",
+    "home": "الصفحة الرئيسية",
+    "admin": "مدير",
+    "password": "كلمة المرور",
+    "email": "البريد الإلكتروني",
+    "name": "الاسم",
+    "lastname": "اللقب",
+    "confirm_password": "تأكيد كلمة المرور",
+    "forget": "هل نسيت كلمة المرور؟",
+    "register": "ليس لديك حساب؟ سجل",
+    "login": "هل لديك حساب بالفعل؟ تسجيل الدخول"
+  },
+  "hero": {
+    "login_title": "مرحبا!",
+    "login_description": "في الصورة الجديدة لإدارة المشاريع.",
+    "register_title": "سجل الآن!",
+    "register_description": "ابدأ في الاستمتاع بإدارة المشاريع."
+  },
+  "tables": {
+    "teams": {
+      "name": "الاسم",
+      "size": "الأعضاء",
+      "creation_date": "تاريخ الإنشاء",
+      "status": "الحالة",
+      "country": "البلد"
     }
+  }
 }

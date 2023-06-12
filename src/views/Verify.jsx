@@ -1,5 +1,5 @@
 const Verify = () => {
-  return <div>Verify</div>
-}
+  return <div>Verify</div>;
+};
 
-export default Verify
+export default Verify;

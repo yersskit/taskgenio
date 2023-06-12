@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import SimpleInput from "./SimpleInput";
+import React, { useState, useEffect } from 'react';
+import SimpleInput from './SimpleInput';
 
 const DebouncedInput = ({
   name,
@@ -9,7 +9,7 @@ const DebouncedInput = ({
   type,
   min,
   max,
-  size,
+  size
 }) => {
   const [value, setValue] = useState(initialValue);
 

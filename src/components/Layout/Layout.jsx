@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import Sidebar from "./Sidebar";
-import Main from "./Main";
-import Header from "./Header";
-import Toasts from "./Toasts";
+import React, { useRef } from 'react';
+import Sidebar from './Sidebar';
+import Main from './Main';
+import Header from './Header';
+import Toasts from './Toasts';
 
 const Layout = ({ children }) => {
   const sidebarRef = useRef(null);

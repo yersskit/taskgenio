@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { FaUser } from "react-icons/fa";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { FaUser } from 'react-icons/fa';
 
 const UserDropdown = () => {
   // TODO: implementar funciones

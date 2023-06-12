@@ -1,22 +1,9 @@
-import React from "react";
-import {
-  INVALID_EMAIL,
-  MANDATORY_INDICATOR,
-  REQUIRED_FIELD,
-} from "../../utils/consts";
-import { useTranslation } from "react-i18next";
-import { inputSizes } from "../../utils/utils";
+import React from 'react';
+import { INVALID_EMAIL, MANDATORY_INDICATOR, REQUIRED_FIELD } from '../../utils/consts';
+import { useTranslation } from 'react-i18next';
+import { inputSizes } from '../../utils/utils';
 
-const EmailInput = ({
-  name,
-  value,
-  onChange,
-  required,
-  errors,
-  setErrors,
-  disabled,
-  size,
-}) => {
+const EmailInput = ({ name, value, onChange, required, errors, setErrors, disabled, size }) => {
   const { t } = useTranslation();
 
   const handleChange = (e) => {
@@ -49,9 +36,7 @@ const EmailInput = ({
     <div className="flex flex-col justify-start items-start w-full">
       <label className="label w-full flex justify-start gap-[1px]">
         <span className="label-text">{t(`labels.${name}`)}</span>
-        {required && (
-          <span className="text-error text-xs">{MANDATORY_INDICATOR}</span>
-        )}
+        {required && <span className="text-error text-xs">{MANDATORY_INDICATOR}</span>}
       </label>
       <input
         disabled={disabled}
@@ -59,8 +44,8 @@ const EmailInput = ({
         type="email"
         placeholder={t(`labels.${name}`)}
         className={`input input-bordered w-full outline-none focus:outline-none focus:ring-2 focus:ring-secondary ${
-          errors && errors.length > 0 ? "input-error" : ""
-        } ${inputSizes[size] ?? inputSizes["md"]}`}
+          errors && errors.length > 0 ? 'input-error' : ''
+        } ${inputSizes[size] ?? inputSizes['md']}`}
         name={name}
         id={name}
         value={value}

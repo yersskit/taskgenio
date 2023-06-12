@@ -1,6 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { LOGIN_PATH } from "../utils/routes";
+import { Navigate, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { LOGIN_PATH } from '../utils/routes';
 
 const WithUserRoutes = () => {
   const { session } = useSelector((state) => state.user);

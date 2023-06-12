@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   createColumnHelper,
   flexRender,
@@ -7,21 +7,21 @@ import {
   useReactTable,
   getSortedRowModel,
   getPaginationRowModel,
-  getFilteredRowModel,
-} from "@tanstack/react-table";
-import { DateTime, Settings } from "luxon";
-import SortIcon from "../icons/SortIcon";
-import DescendentIcon from "../icons/DescendentIcon";
-import AscendentIcon from "../icons/AscendentIcon";
-import TablePagination from "./TablePagination";
+  getFilteredRowModel
+} from '@tanstack/react-table';
+import { DateTime, Settings } from 'luxon';
+import SortIcon from '../icons/SortIcon';
+import DescendentIcon from '../icons/DescendentIcon';
+import AscendentIcon from '../icons/AscendentIcon';
+import TablePagination from './TablePagination';
 
 const Table = ({ data, hidden, customCells, controls, name }) => {
   const { t, i18n } = useTranslation();
-  const [currentLang] = i18n.language.split("-");
+  const [currentLang] = i18n.language.split('-');
   const columnHelper = createColumnHelper();
 
   const [sorting, setSorting] = useState([]);
-  const [globalFilter, setGlobalFilter] = useState("");
+  const [globalFilter, setGlobalFilter] = useState('');
 
   Settings.defaultLocale = currentLang;
 
@@ -33,12 +33,10 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
             columnHelper.accessor(key, {
               cell: (info) => info.getValue(),
               header: () => {
-                let convertedCase = key.replace(/([A-Z])/g, " $1");
-                convertedCase =
-                  convertedCase.charAt(0).toUpperCase() +
-                  convertedCase.slice(1);
+                let convertedCase = key.replace(/([A-Z])/g, ' $1');
+                convertedCase = convertedCase.charAt(0).toUpperCase() + convertedCase.slice(1);
                 return convertedCase;
-              },
+              }
             })
           )
       : [];
@@ -48,14 +46,14 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
     columns,
     state: {
       sorting,
-      globalFilter,
+      globalFilter
     },
     onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
-    onGlobalFilterChange: setGlobalFilter,
+    onGlobalFilterChange: setGlobalFilter
   });
 
   return (
@@ -67,18 +65,14 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
-                    let translatedHeader = i18n.exists(
-                      `tables.common.${header.column.id}`
-                    )
+                    let translatedHeader = i18n.exists(`tables.common.${header.column.id}`)
                       ? t(`tables.common.${header.column.id}`)
                       : t(`tables.${name}.${header.column.id}`);
 
                     return (
                       <th
                         className={`normal-case text-sm ${
-                          header.column.getCanSort()
-                            ? "cursor-pointer select-none"
-                            : ""
+                          header.column.getCanSort() ? 'cursor-pointer select-none' : ''
                         }`}
                         onClick={() => {
                           if (header.column.getCanSort()) {
@@ -90,24 +84,19 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                         <div className="flex w-full h-full items-center justify-start gap-2">
                           {header.isPlaceholder
                             ? null
-                            : flexRender(
-                                <p>{translatedHeader}</p>,
-                                header.getContext()
-                              )}
+                            : flexRender(<p>{translatedHeader}</p>, header.getContext())}
                           {header.column.getCanSort() &&
                             {
                               asc: <AscendentIcon />,
                               desc: <DescendentIcon />,
-                              false: <SortIcon />,
+                              false: <SortIcon />
                             }[header.column.getIsSorted()]}
                         </div>
                       </th>
                     );
                   })}
                   {controls && (
-                    <th className="w-auto normal-case text-sm">
-                      {t("tables.common.actions")}
-                    </th>
+                    <th className="w-auto normal-case text-sm">{t('tables.common.actions')}</th>
                   )}
                 </tr>
               ))}
@@ -118,11 +107,9 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                   {row.getVisibleCells().map((cell) => {
                     let formattedValue = cell.getValue();
 
-                    if (cell.column.id === "$createdAt") {
-                      formattedValue = DateTime.fromISO(
-                        cell.getValue()
-                      ).toFormat("DDD");
-                    } else if (cell.column.id === "status") {
+                    if (cell.column.id === '$createdAt') {
+                      formattedValue = DateTime.fromISO(cell.getValue()).toFormat('DDD');
+                    } else if (cell.column.id === 'status') {
                       formattedValue = t(`status.${cell.getValue()}`);
                     }
 
@@ -131,10 +118,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                         {flexRender(
                           customCells
                             ? customCells
-                                .find(
-                                  (customCell) =>
-                                    customCell.column === cell.column.id
-                                )
+                                .find((customCell) => customCell.column === cell.column.id)
                                 ?.component(cell.row.original) ?? formattedValue
                             : formattedValue,
                           cell.getContext()
@@ -142,9 +126,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                       </td>
                     );
                   })}
-                  {controls && (
-                    <td className="w-auto">{controls(row.original)}</td>
-                  )}
+                  {controls && <td className="w-auto">{controls(row.original)}</td>}
                 </tr>
               ))}
             </tbody>
@@ -156,7 +138,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
           />
         </div>
       ) : (
-        <p className="text-gray-500">{t("errors.no_data_found")}</p>
+        <p className="text-gray-500">{t('errors.no_data_found')}</p>
       )}
     </>
   );

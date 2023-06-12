@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import EmailInput from "./../components/Inputs/EmailInput";
-import PasswordInput from "./../components/Inputs/PasswordInput";
-import { useDispatch, useSelector } from "react-redux";
-import { INPUT_PASSWORD, INPUT_EMAIL } from "../utils/consts";
-import { loginUser } from "../store/user";
-import { useTranslation } from "react-i18next";
-import { REGISTER_PATH } from "./../utils/routes";
-import PrimaryButton from "../components/Common/Buttons/PrimaryButton";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import EmailInput from './../components/Inputs/EmailInput';
+import PasswordInput from './../components/Inputs/PasswordInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { INPUT_PASSWORD, INPUT_EMAIL } from '../utils/consts';
+import { loginUser } from '../store/user';
+import { useTranslation } from 'react-i18next';
+import { REGISTER_PATH } from './../utils/routes';
+import PrimaryButton from '../components/Common/Buttons/PrimaryButton';
 
 const Login = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -59,8 +59,8 @@ const Login = () => {
     <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">{t("hero.login_title")}</h1>
-          <p className="py-6">{t("hero.login_description")}</p>
+          <h1 className="text-5xl font-bold">{t('hero.login_title')}</h1>
+          <p className="py-6">{t('hero.login_description')}</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
           <div className="card-body">
@@ -84,27 +84,16 @@ const Login = () => {
                 setErrors={setErrors}
                 showConstraints={false}
               />
-              {error && (
-                <p className="text-error text-xs mt-2">
-                  {t(`errors.${error}`)}
-                </p>
-              )}
+              {error && <p className="text-error text-xs mt-2">{t(`errors.${error}`)}</p>}
               <div className="flex flex-col mt-6">
-                <PrimaryButton
-                  disabled={!enableSubmit}
-                  onClick={onSubmit}
-                  isLoading={isLoading}
-                >
-                  {t("actions.login")}
+                <PrimaryButton disabled={!enableSubmit} onClick={onSubmit} isLoading={isLoading}>
+                  {t('actions.login')}
                 </PrimaryButton>
               </div>
             </form>
             <div className="flex justify-end items-end mt-2">
-              <Link
-                to={REGISTER_PATH}
-                className="label-text-alt link link-hover"
-              >
-                {t("labels.register")}
+              <Link to={REGISTER_PATH} className="label-text-alt link link-hover">
+                {t('labels.register')}
               </Link>
             </div>
           </div>

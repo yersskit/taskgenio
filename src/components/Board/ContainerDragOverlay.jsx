@@ -1,14 +1,14 @@
-import React from "react";
-import { Container } from "./Container";
-import { Item } from "./Item";
+import React from 'react';
+import { Container } from './Container';
+import { Item } from './Item';
 
 const ContainerDragOverlay = ({ containerId, items }) => {
   return (
     <Container
       label={`Column ${containerId}`}
       style={{
-        height: "100%",
-        width: "100%",
+        height: '100%',
+        width: '100%'
       }}
       shadow
       unstyled={false}

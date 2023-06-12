@@ -1,7 +1,7 @@
-import React from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { handleOpenSidebar } from "../../store/layout";
+import React from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { handleOpenSidebar } from '../../store/layout';
 
 const HamburgerMenu = () => {
   const dispatch = useDispatch();

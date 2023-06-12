@@ -1,69 +1,69 @@
 {
-    "menu": {
-        "home": "Início",
-        "projects": "Projetos",
-        "teams": "Equipes"
-    },
-    "languages": {
-        "en": "English",
-        "de": "Deutsch",
-        "es": "Español",
-        "fr": "Français",
-        "zh": "中文",
-        "ja": "日本語",
-        "ru": "Русский",
-        "ar": "العربية",
-        "pt": "Português",
-        "ko": "한국어",
-        "it": "Italiano"
-    },
-    "errors": {
-        "no_error": " ",
-        "default_error": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
-        "user_invalid_credentials": "E-mail ou senha incorretos.",
-        "user_already_exists": "O e-mail já está em uso.",
-        "general_unauthorized_scope": "Você não tem permissão para realizar esta ação.",
-        "no_data_found": "Nenhum registro encontrado.",
-        "error_login": "Erro ao fazer login.",
-        "required_field": "Este campo é obrigatório.",
-        "invalid_email": "O e-mail não é válido.",
-        "one_uppercase": "Uma letra maiúscula.",
-        "one_lowercase": "Uma letra minúscula.",
-        "one_number": "Um número.",
-        "one_special_character": "Um caractere especial !@#$%^&*",
-        "minimum_password_characters": "Mínimo de 8 caracteres."
-    },
-    "actions": {
-        "logout": "Sair",
-        "login": "Entrar",
-        "register": "Criar conta"
-    },
-    "labels": {
-        "search": "Pesquisar",
-        "home": "Início",
-        "admin": "Administrador",
-        "password": "Senha",
-        "email": "E-mail",
-        "name": "Nome",
-        "lastname": "Sobrenome",
-        "confirm_password": "Confirmar senha",
-        "forget": "Esqueceu sua senha?",
-        "register": "Não tem uma conta? Cadastre-se",
-        "login": "Já tem uma conta? Entre"
-    },
-    "hero": {
-        "login_title": "Bem-vindo!",
-        "login_description": "À nova aparência do gerenciamento de projetos.",
-        "register_title": "Registre-se agora!",
-        "register_description": "Comece a desfrutar do gerenciamento de projetos."
-    },
-    "tables": {
-        "teams": {
-            "name": "Nome",
-            "size": "Membros",
-            "creation_date": "Data de criação",
-            "status": "Status",
-            "country": "País"
-        }
+  "menu": {
+    "home": "Início",
+    "projects": "Projetos",
+    "teams": "Equipes"
+  },
+  "languages": {
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français",
+    "zh": "中文",
+    "ja": "日本語",
+    "ru": "Русский",
+    "ar": "العربية",
+    "pt": "Português",
+    "ko": "한국어",
+    "it": "Italiano"
+  },
+  "errors": {
+    "no_error": " ",
+    "default_error": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
+    "user_invalid_credentials": "E-mail ou senha incorretos.",
+    "user_already_exists": "O e-mail já está em uso.",
+    "general_unauthorized_scope": "Você não tem permissão para realizar esta ação.",
+    "no_data_found": "Nenhum registro encontrado.",
+    "error_login": "Erro ao fazer login.",
+    "required_field": "Este campo é obrigatório.",
+    "invalid_email": "O e-mail não é válido.",
+    "one_uppercase": "Uma letra maiúscula.",
+    "one_lowercase": "Uma letra minúscula.",
+    "one_number": "Um número.",
+    "one_special_character": "Um caractere especial !@#$%^&*",
+    "minimum_password_characters": "Mínimo de 8 caracteres."
+  },
+  "actions": {
+    "logout": "Sair",
+    "login": "Entrar",
+    "register": "Criar conta"
+  },
+  "labels": {
+    "search": "Pesquisar",
+    "home": "Início",
+    "admin": "Administrador",
+    "password": "Senha",
+    "email": "E-mail",
+    "name": "Nome",
+    "lastname": "Sobrenome",
+    "confirm_password": "Confirmar senha",
+    "forget": "Esqueceu sua senha?",
+    "register": "Não tem uma conta? Cadastre-se",
+    "login": "Já tem uma conta? Entre"
+  },
+  "hero": {
+    "login_title": "Bem-vindo!",
+    "login_description": "À nova aparência do gerenciamento de projetos.",
+    "register_title": "Registre-se agora!",
+    "register_description": "Comece a desfrutar do gerenciamento de projetos."
+  },
+  "tables": {
+    "teams": {
+      "name": "Nome",
+      "size": "Membros",
+      "creation_date": "Data de criação",
+      "status": "Status",
+      "country": "País"
     }
+  }
 }

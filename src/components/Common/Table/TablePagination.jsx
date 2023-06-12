@@ -1,11 +1,11 @@
-import React from "react";
-import FirstPageIcon from "../Icons/FirstPageIcon";
-import LastPageIcon from "../Icons/LastPageIcon";
-import NextPageIcon from "../Icons/NextPageIcon";
-import PreviousPageIcon from "../Icons/PreviousPageIcon";
-import { useTranslation } from "react-i18next";
-import DebouncedInput from "../../Inputs/DebouncedInput";
-import SimpleInput from "../../Inputs/SimpleInput";
+import React from 'react';
+import FirstPageIcon from '../Icons/FirstPageIcon';
+import LastPageIcon from '../Icons/LastPageIcon';
+import NextPageIcon from '../Icons/NextPageIcon';
+import PreviousPageIcon from '../Icons/PreviousPageIcon';
+import { useTranslation } from 'react-i18next';
+import DebouncedInput from '../../Inputs/DebouncedInput';
+import SimpleInput from '../../Inputs/SimpleInput';
 
 const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
   const { t } = useTranslation();
@@ -14,11 +14,11 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
     <div className="flex items-center gap-4 justify-end p-2 text-sm bg-base-200 rounded-b-lg">
       <DebouncedInput
         name="search"
-        value={globalFilter ?? ""}
+        value={globalFilter ?? ''}
         onChange={(value) => setGlobalFilter(value)}
         debounce={500}
-        size={"xs"}
-        type={"text"}
+        size={'xs'}
+        type={'text'}
       />
       <div className="flex justify-start items-center gap-1">
         <button
@@ -51,14 +51,13 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
         </button>
       </div>
       <span className="flex items-center gap-1">
-        <div>{t("labels.page")}</div>
+        <div>{t('labels.page')}</div>
         <strong>
-          {table.getState().pagination.pageIndex + 1} {t("labels.of")}{" "}
-          {table.getPageCount()}
+          {table.getState().pagination.pageIndex + 1} {t('labels.of')} {table.getPageCount()}
         </strong>
       </span>
       <span className="flex items-center gap-1">
-        {t("labels.go_to_page")}
+        {t('labels.go_to_page')}
         <SimpleInput
           name="goToPage"
           type="number"
@@ -69,11 +68,11 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
             const page = e.target.value ? Number(e.target.value) - 1 : 0;
             table.setPageIndex(page);
           }}
-          size={"xs"}
+          size={'xs'}
         />
       </span>
       <span className="flex items-center justify-start gap-1">
-        {t("labels.showing")}{" "}
+        {t('labels.showing')}{' '}
         <select
           className="select select-bordered select-xs w-16 text-right"
           value={table.getState().pagination.pageSize}
@@ -86,8 +85,8 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
               {pageSize}
             </option>
           ))}
-        </select>{" "}
-        {t("labels.of")} {table.options.data.length} {t("labels.records")}
+        </select>{' '}
+        {t('labels.of')} {table.options.data.length} {t('labels.records')}
       </span>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const PrimaryButton = ({ disabled, onClick, isLoading, children }) => {
   return (
@@ -6,7 +6,7 @@ const PrimaryButton = ({ disabled, onClick, isLoading, children }) => {
       type="submit"
       disabled={disabled || isLoading}
       onClick={onClick}
-      className={`btn btn-primary ${isLoading ? "loading" : ""}`}
+      className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
     >
       {children}
     </button>

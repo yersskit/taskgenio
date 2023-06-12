@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { LOCAL_STORAGE_THEME_KEY } from "../../utils/consts";
-import { themes } from "../../utils/themes";
-import { HiOutlineChevronDown } from "react-icons/hi";
-import { IoColorPaletteOutline } from "react-icons/io5";
+import React, { useState, useEffect } from 'react';
+import { LOCAL_STORAGE_THEME_KEY } from '../../utils/consts';
+import { themes } from '../../utils/themes';
+import { HiOutlineChevronDown } from 'react-icons/hi';
+import { IoColorPaletteOutline } from 'react-icons/io5';
 
 const ThemeSelector = () => {
   const [currentTheme, setCurrentTheme] = useState();
 
   const toggleTheme = (value) => {
     setCurrentTheme(value);
-    document.documentElement.setAttribute("data-theme", value);
+    document.documentElement.setAttribute('data-theme', value);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, value);
   };
 

@@ -1,5 +1,5 @@
-import React from "react";
-import { BiCaretUp } from "react-icons/bi";
+import React from 'react';
+import { BiCaretUp } from 'react-icons/bi';
 
 const AscendentIcon = () => {
   return <BiCaretUp />;
