@@ -8,6 +8,7 @@ import { BsChevronDoubleLeft } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleCloseSidebar } from '../../store/layout';
 import { AiOutlineSetting } from 'react-icons/ai';
+import Logo from './Logo';
 
 const Sidebar = ({ sidebarRef }) => {
   const { t } = useTranslation();
@@ -27,43 +28,33 @@ const Sidebar = ({ sidebarRef }) => {
     <div
       ref={sidebarRef}
       id="sidebar"
-      className="w-52 min-h-screen pt-3 pb-10 overflow-y-auto scrollbar-y text-sm relative"
-    >
+      className="w-52 min-h-screen pt-6 pb-10 overflow-y-auto scrollbar-y text-sm relative">
       <div className="px-6">
-        <img
-          onClick={() => onClickMenu(HOME_PATH)}
-          src="/lista.svg"
-          alt="lista.svg"
-          className="h-[35px] cursor-pointer"
-        />
+        <Logo />
       </div>
-      <nav className="px-4 pt-6 w-full flex flex-col flex-wrap">
+      <nav className="px-4 pt-12 w-full flex flex-col flex-wrap">
         <ul className="space-y-1.5">
           <li
             onClick={() => onClickMenu(HOME_PATH)}
-            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}
-          >
+            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}>
             <AiOutlineHome className="w-3.5 h-3.5" />
             {t('menu.home')}
           </li>
           <li
             onClick={() => onClickMenu(PROJECTS_PATH)}
-            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}
-          >
+            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}>
             <AiOutlineProject className="w-3.5 h-3.5" />
             {t('menu.projects')}
           </li>
           <li
             onClick={() => onClickMenu(TEAMS_PATH)}
-            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}
-          >
+            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}>
             <VscOrganization className="w-3.5 h-3.5" />
             {t('menu.teams')}
           </li>
           <li
             onClick={() => onClickMenu(SETTINGS_PATH)}
-            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}
-          >
+            className={`flex items-center gap-x-3.5 py-2 px-2.5 cursor-pointer rounded`}>
             <AiOutlineSetting className="w-3.5 h-3.5" />
             {t('menu.settings')}
           </li>
@@ -73,8 +64,7 @@ const Sidebar = ({ sidebarRef }) => {
         <button
           type="button"
           onClick={() => dispatch(handleCloseSidebar({ storeInSession: true }))}
-          className="mr-auto p-2 bg-neutral text-neutral-content hover:bg-neutral-focus absolute bottom-4 right-4 rounded-btn"
-        >
+          className="mr-auto p-2 bg-neutral text-neutral-content hover:bg-neutral-focus absolute bottom-4 right-4 rounded-btn">
           <BsChevronDoubleLeft />
         </button>
       )}

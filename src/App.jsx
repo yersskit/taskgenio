@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { Provider, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { HistoryRouter as Router } from 'redux-first-history/rr6';
-import { store, history } from './store';
+// import { HistoryRouter as Router } from 'redux-first-history/rr6';
+import { HashRouter } from 'react-router-dom';
+// import { store, history } from './store';
+import { store } from './store';
 import Projects from './views/Projects';
 import Home from './views/Home';
 import Teams from './views/Teams';
@@ -46,7 +48,8 @@ const AuthProvider = ({ children }) => {
 
 const App = () => (
   <Provider store={store}>
-    <Router history={history}>
+    <HashRouter>
+      {/* <Router history={history}> */}
       <Loader />
       <AuthProvider>
         <Routes>
@@ -68,7 +71,7 @@ const App = () => (
           </Route>
         </Routes>
       </AuthProvider>
-    </Router>
+    </HashRouter>
   </Provider>
 );
 

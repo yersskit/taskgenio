@@ -11,7 +11,7 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex items-center gap-4 justify-end p-2 text-sm bg-base-200 rounded-b-lg">
+    <div className="flex items-center gap-4 justify-between p-2 text-sm bg-base-200 rounded-b-lg flex-wrap">
       <DebouncedInput
         name="search"
         value={globalFilter ?? ''}
@@ -20,57 +20,55 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
         size={'xs'}
         type={'text'}
       />
-      <div className="flex justify-start items-center gap-1">
-        <button
-          className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
-          onClick={() => table.setPageIndex(0)}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <FirstPageIcon />
-        </button>
-        <button
-          className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          <PreviousPageIcon />
-        </button>
-        <button
-          className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          <NextPageIcon />
-        </button>
-        <button
-          className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={!table.getCanNextPage()}
-        >
-          <LastPageIcon />
-        </button>
+      <div className="flex items-center gap-4">
+        <div className="flex justify-start items-center gap-1">
+          <button
+            className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
+            onClick={() => table.setPageIndex(0)}
+            disabled={!table.getCanPreviousPage()}>
+            <FirstPageIcon />
+          </button>
+          <button
+            className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}>
+            <PreviousPageIcon />
+          </button>
+          <button
+            className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}>
+            <NextPageIcon />
+          </button>
+          <button
+            className="btn btn-xs btn-square bg-secondary border-none text-secondary-content disabled:bg-opacity-30 hover:bg-secondary-focus disabled:hover:bg-secondary"
+            onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+            disabled={!table.getCanNextPage()}>
+            <LastPageIcon />
+          </button>
+        </div>
+        <span className="flex items-center gap-1">
+          <div>{t('labels.page')}</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} {t('labels.of')} {table.getPageCount()}
+          </strong>
+        </span>
+        <span className="flex items-center gap-1">
+          {t('labels.go_to_page')}
+          <SimpleInput
+            name="goToPage"
+            type="number"
+            min={1}
+            max={table.getPageCount()}
+            value={table.getState().pagination.pageIndex + 1}
+            onChange={(e) => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0;
+              table.setPageIndex(page);
+            }}
+            size={'xs'}
+          />
+        </span>
       </div>
-      <span className="flex items-center gap-1">
-        <div>{t('labels.page')}</div>
-        <strong>
-          {table.getState().pagination.pageIndex + 1} {t('labels.of')} {table.getPageCount()}
-        </strong>
-      </span>
-      <span className="flex items-center gap-1">
-        {t('labels.go_to_page')}
-        <SimpleInput
-          name="goToPage"
-          type="number"
-          min={1}
-          max={table.getPageCount()}
-          value={table.getState().pagination.pageIndex + 1}
-          onChange={(e) => {
-            const page = e.target.value ? Number(e.target.value) - 1 : 0;
-            table.setPageIndex(page);
-          }}
-          size={'xs'}
-        />
-      </span>
       <span className="flex items-center justify-start gap-1">
         {t('labels.showing')}{' '}
         <select
@@ -78,8 +76,7 @@ const TablePagination = ({ table, globalFilter, setGlobalFilter }) => {
           value={table.getState().pagination.pageSize}
           onChange={(e) => {
             table.setPageSize(Number(e.target.value));
-          }}
-        >
+          }}>
           {[5, 10, 15, 20, 30].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               {pageSize}
