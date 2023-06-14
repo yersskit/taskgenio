@@ -2,7 +2,7 @@ import { useSortable } from '@dnd-kit/sortable';
 import React, { useEffect, useState } from 'react';
 import { Item } from './Item';
 
-const SortableItem = ({ disabled, id, index }) => {
+const SortableItem = ({ disabled, id, index, content }) => {
   function useMountStatus() {
     const [isMounted, setIsMounted] = useState(false);
 
@@ -31,6 +31,7 @@ const SortableItem = ({ disabled, id, index }) => {
       transform={transform}
       fadeIn={mountedWhileDragging}
       listeners={listeners}
+      content={content}
     />
   );
 };

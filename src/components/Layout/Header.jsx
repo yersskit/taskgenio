@@ -26,7 +26,7 @@ const Header = ({ sidebarRef }) => {
   const sidebarHidden = useSelector((state) => state.layout.sidebarHidden);
 
   return (
-    <div id="header" className="w-full min-h-[50px] max-h-[50px] flex items-center px-8">
+    <div id="header" className="w-full min-h-[40px] max-h-[40px] flex items-center px-8 box-border">
       {sidebarHidden && <HamburgerMenu />}
       <div className="w-full h-full flex justify-end items-center gap-1">
         <ThemeSelector />

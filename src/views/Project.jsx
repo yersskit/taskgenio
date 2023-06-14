@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Layout from '../components/Layout/Layout';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../components/Common/Modal';
-import { CREATE_MODE, PROJECT_ENTITY, TASK_ENTITY } from '../utils/consts';
+import { CREATE_MODE, TASK_ENTITY } from '../utils/consts';
 import ViewHeader from '../components/Layout/ViewHeader';
 import ViewContent from '../components/Layout/ViewContent';
 import View from '../components/Layout/View';
@@ -17,7 +17,7 @@ const Project = () => {
   const { getParam } = useSearchParams();
   const createTaskRef = useRef();
 
-  const { projects, error, isLoading } = useSelector((state) => state.projects);
+  const { error, isLoading } = useSelector((state) => state.projects);
 
   const handleOpenModal = () => {
     createTaskRef.current.checked = true;
@@ -34,8 +34,7 @@ const Project = () => {
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
-            disabled={error || isLoading}
-          >
+            disabled={error || isLoading}>
             {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${TASK_ENTITY}`)}
           </button>
         </ViewHeader>
@@ -44,8 +43,7 @@ const Project = () => {
             mode={CREATE_MODE}
             entity={t(`entities.${TASK_ENTITY}`)}
             composedKey={`${CREATE_MODE}__${TASK_ENTITY}`}
-            modalRef={createTaskRef}
-          ></Modal>
+            modalRef={createTaskRef}></Modal>
 
           <BoardView />
         </ViewContent>

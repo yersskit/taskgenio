@@ -5,6 +5,7 @@ export const INPUT_LASTNAME = 'lastname';
 export const INPUT_EMAIL = 'email';
 export const INPUT_PASSWORD = 'password';
 export const INPUT_CONFIRM_PASSWORD = 'confirmPassword';
+export const INPUT_PHONE = 'phone';
 
 // error constants
 export const NO_DATA_FOUND = 'no_data_found';
@@ -52,3 +53,11 @@ export const CREATE_TEAM = 'create_team';
 export const CREATE_TASK = 'create_task';
 export const CREATE_TEAM_MEMBER = 'create_team_member';
 export const CREATE_PROJECT = 'create_project';
+
+export const TASK_TYPE = 'task_type';
+export const ISSUE_TYPE = 'issue_type';
+export const BUG_TYPE = 'bug_type';
+
+export const PRIORITY_LOW = 'low';
+export const PRIORITY_MEDIUM = 'medium';
+export const PRIORITY_HIGH = 'high';

@@ -1,67 +1,75 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { FaUser } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../../store/user';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { storage } from '../../utils/appwriteConfig';
+import { avatars_storage_id } from '../../utils/collections';
+import AstronautPlaceholderIcon from '../Common/Icons/AstronautPlaceholderIcon';
 
 const UserDropdown = () => {
-  // TODO: implementar funciones
-  // TODO: implementar foto de perfil
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
 
-  const session = useSelector((state) => state.user.session);
+  const user = useSelector((state) => state.user);
+
+  const [profilePhoto, setProfilePhoto] = useState(null);
+
+  const getProfilePicture = async () => {
+    try {
+      let response = await storage.getFile(avatars_storage_id, user.session.$id);
+      if (response) {
+        let url = storage.getFileView(avatars_storage_id, user.session.$id);
+
+        setProfilePhoto(url);
+      }
+    } catch (error) {
+      setProfilePhoto(null);
+    }
+  };
+
+  useEffect(() => {
+    getProfilePicture();
+  }, []);
+
+  useEffect(() => {
+    if (!user.session.avatarUrl) {
+      getProfilePicture();
+    }
+  }, [user.session.avatarUrl]);
 
   return (
     <div className="dropdown dropdown-end">
       <button
         tabIndex={0}
-        className="btn btn-sm text-sm flex items-center justify-start gap-2 cursor-pointer rounded p-0 overflow-hidden w-[36px] ml-4 border-none"
-      >
-        <div className="h-full w-full flex justify-center items-center relative">
-          {session ? (
-            <img
-              className="absolute top-0 bottom-0 right-0 left-0 m-auto"
-              src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="profile"
-            />
-          ) : (
-            <FaUser />
-          )}
-        </div>
+        className="btn btn-sm text-sm flex items-center justify-start gap-2 cursor-pointer rounded p-0 overflow-hidden w-[36px] ml-4 border-none">
+        {profilePhoto ? (
+          <img
+            className="object-cover w-full rounded overflow-hidden box-border bg-transparent object-top"
+            src={profilePhoto}
+            alt="profile"
+          />
+        ) : (
+          <div className="w-full h-full bg-inherit flex items-center justify-center overflow-hidden">
+            <AstronautPlaceholderIcon className="-mb-[10px] text-[24px]" />
+          </div>
+        )}
       </button>
       <ul
         tabIndex={0}
-        className="dropdown-content menu-vertical shadow rounded w-52 mt-1 min-h-min max-h-max overflow-x-auto p-2 box-border bg-base-200"
-      >
-        {!session && (
-          <>
-            <li
-              onClick={() => {}}
-              className={`btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}
-            >
-              <p className="text-left">Login</p>
-            </li>
-            <li
-              onClick={() => {}}
-              className={`btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}
-            >
-              <p className="text-left">Register</p>
-            </li>
-          </>
-        )}
-        {session && (
-          <>
-            <li
-              onClick={() => {}}
-              className={`btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}
-            >
-              <p className="text-left">My Account</p>
-            </li>
-            <li
-              onClick={() => {}}
-              className={`btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}
-            >
-              <p className="text-left">Log out</p>
-            </li>
-          </>
-        )}
+        className="dropdown-content menu-vertical shadow rounded w-52 mt-3 min-h-min max-h-max overflow-x-auto p-2 box-border bg-base-200">
+        <li>
+          <Link
+            className="btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content"
+            to="/account">
+            <p className="text-left">{t('labels.account')}</p>
+          </Link>
+        </li>
+        <li
+          onClick={() => dispatch(logoutUser())}
+          className={`btn btn-sm normal-case flex flex-row justify-between rounded text-xs border-none mt-2 first:mt-0 bg-base-100 text-base-content hover:bg-base-300 hover:text-base-content outline-base-content`}>
+          <p className="text-left">{t('actions.logout')}</p>
+        </li>
       </ul>
     </div>
   );

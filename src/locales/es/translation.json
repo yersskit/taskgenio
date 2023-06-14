@@ -74,6 +74,7 @@
     "admin": "Administrador",
     "password": "Contraseña",
     "email": "Correo electrónico",
+    "phone": "Teléfono",
     "name": "Nombre",
     "lastname": "Apellido",
     "confirm_password": "Confirmar contraseña",
@@ -84,7 +85,8 @@
     "of": "de",
     "go_to_page": "Ir a la página",
     "records": "registros",
-    "showing": "Mostrando"
+    "showing": "Mostrando",
+    "account": "Mi cuenta"
   },
   "hero": {
     "login_title": "¡Bienvenido!",

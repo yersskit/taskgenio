@@ -71,7 +71,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
 
                     return (
                       <th
-                        className={`normal-case text-sm ${
+                        className={`normal-case ${
                           header.column.getCanSort() ? 'cursor-pointer select-none' : ''
                         }`}
                         onClick={() => {
@@ -79,8 +79,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                             header.column.toggleSorting();
                           }
                         }}
-                        key={header.id}
-                      >
+                        key={header.id}>
                         <div className="flex w-full h-full items-center justify-start gap-2">
                           {header.isPlaceholder
                             ? null
@@ -95,9 +94,7 @@ const Table = ({ data, hidden, customCells, controls, name }) => {
                       </th>
                     );
                   })}
-                  {controls && (
-                    <th className="w-auto normal-case text-sm">{t('tables.common.actions')}</th>
-                  )}
+                  {controls && <th className="w-auto normal-case">{t('tables.common.actions')}</th>}
                 </tr>
               ))}
             </thead>

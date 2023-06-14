@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Item.module.css';
+import ItemCard from './ItemCard';
 
 export const Item = React.memo(
   React.forwardRef(
@@ -9,15 +10,13 @@ export const Item = React.memo(
         dragging,
         disabled,
         fadeIn,
-        handleProps,
-        height,
         index,
         listeners,
         sorting,
         style,
         transition,
         transform,
-        value,
+        content,
         ...props
       },
       ref
@@ -38,8 +37,7 @@ export const Item = React.memo(
             '--scale-y': transform?.scaleY ? `${transform.scaleY}` : undefined,
             '--index': index
           }}
-          ref={ref}
-        >
+          ref={ref}>
           <div
             className={`${[
               styles.Item,
@@ -48,11 +46,9 @@ export const Item = React.memo(
               disabled && styles.disabled
             ].join(' ')} flex flex-col items-start`}
             style={style}
-            data-cypress="draggable-item"
             {...listeners}
-            {...props}
-          >
-            {value}
+            {...props}>
+            <ItemCard content={content} />
           </div>
         </li>
       );

@@ -8,21 +8,63 @@ function BoardView() {
   //todo: pasar data de cada item para mostrar controles dentro del item
 
   const [items, setItems] = useState({
-    A: [
-      { id: '1', content: 'Item 1' },
-      { id: '2', content: 'Item 2' }
+    'To Do': [
+      {
+        id: '1',
+        data: {
+          title: 'Item 1',
+          description: 'Description 1',
+          priority: 'high',
+          owner: '648954d533b1a0f1e659',
+          createdBy: '648955049b4335a609fd',
+          dueDate: '',
+          parent: null,
+          type: 'task_type',
+          tasks: [
+            {
+              description: 'Task 1',
+              completed: true,
+              assignedTo: '6489554d9b67ca496f53'
+            },
+            {
+              description: 'Task 4',
+              completed: false,
+              assignedTo: '648955375b4c4e69baa6'
+            }
+          ],
+          userStories: [],
+          diagrams: []
+        }
+      }
     ],
-    B: [
-      { id: '3', content: 'Item 3' },
-      { id: '4', content: 'Item 4' }
-    ],
-    C: [
-      { id: '5', content: 'Item 5' },
-      { id: '6', content: 'Item 6' }
-    ],
-    D: [
-      { id: '7', content: 'Item 7' },
-      { id: '8', content: 'Item 8' }
+    'In Progress': [
+      {
+        id: '2',
+        data: {
+          title: 'Item 2',
+          description: 'Description 2',
+          priority: 'high',
+          owner: '64895523732371a9d41e',
+          createdBy: '648955049b4335a609fd',
+          dueDate: '',
+          parent: null,
+          type: 'task_type',
+          tasks: [
+            {
+              description: 'Task 1',
+              completed: true,
+              assignedTo: '648955375b4c4e69baa6'
+            },
+            {
+              description: 'Task 4',
+              completed: false,
+              assignedTo: '648955629fd327b76c01'
+            }
+          ],
+          userStories: [],
+          diagrams: []
+        }
+      }
     ]
   });
 

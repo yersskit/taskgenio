@@ -27,10 +27,11 @@ import Register from './views/Register';
 import Forget from './views/Forget';
 import Reset from './views/Reset';
 import { decrementLoadingCounter, incrementLoadingCounter } from './store/loader';
-import Loader from './components/Common/Loader';
 import Team from './views/Team';
 import Settings from './views/Settings';
 import Project from './views/Project';
+import Account from './views/Account';
+import FullPageLoader from './components/Common/FullPageLoader';
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const App = () => (
   <Provider store={store}>
     <HashRouter>
       {/* <Router history={history}> */}
-      <Loader />
+      <FullPageLoader />
       <AuthProvider>
         <Routes>
           <Route element={<WithUserRoutes />}>
@@ -59,6 +60,7 @@ const App = () => (
             <Route element={<Project />} path={`${PROJECTS_PATH}/:projectId`} />
             <Route element={<Teams />} path={TEAMS_PATH} />
             <Route element={<Team />} path={`${TEAMS_PATH}/:teamId`} />
+            <Route element={<Account />} path="/account" />
           </Route>
           <Route element={<NoSessionRoutes />}>
             <Route element={<Login />} path={LOGIN_PATH} />

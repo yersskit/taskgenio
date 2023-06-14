@@ -39,6 +39,7 @@ const dropAnimation = {
 const MultipleContainers = ({ items, setItems, modifiers }) => {
   const [containers, setContainers] = useState(Object.keys(items));
   const [activeId, setActiveId] = useState(null);
+  const [activeData, setActiveData] = useState(null);
   const lastOverId = useRef(null);
   const recentlyMovedToNewContainer = useRef(false);
   const isSortingContainer = activeId ? containers.includes(activeId) : false;
@@ -126,6 +127,10 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
       }}
       onDragStart={({ active }) => {
         setActiveId(active.id);
+        let data = items[findContainer(active.id)];
+        let content = data.find((item) => item.id === active.id);
+
+        setActiveData(content.data);
       }}
       onDragOver={({ active, over }) => {
         const overId = over && over.id ? over.id : null;
@@ -217,17 +222,15 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
 
         setActiveId(null);
       }}
-      modifiers={modifiers}
-    >
+      modifiers={modifiers}>
       <div className="flex gap-4 w-full h-full overflow-x-auto">
         <SortableContext items={[...containers]} strategy={horizontalListSortingStrategy}>
           {containers.map((containerId) => (
             <DroppableContainer
               key={containerId}
               id={containerId}
-              label={`Column ${containerId}`}
-              items={items[containerId]}
-            >
+              label={`${containerId}`}
+              items={items[containerId]}>
               <SortableContext items={items[containerId]} strategy={verticalListSortingStrategy}>
                 {items[containerId].map((item, index) => {
                   return (
@@ -236,6 +239,7 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
                       key={item.id}
                       id={item.id}
                       index={index}
+                      content={item.data}
                     />
                   );
                 })}
@@ -250,7 +254,7 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
             (containers.includes(activeId) ? (
               <ContainerDragOverlay containerId={activeId} items={items} />
             ) : (
-              <ItemDragOverlay id={activeId} />
+              activeData && <ItemDragOverlay id={activeId} content={activeData} />
             ))}
         </DragOverlay>,
         document.body
