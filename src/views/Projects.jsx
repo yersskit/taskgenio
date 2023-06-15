@@ -13,6 +13,8 @@ import Delete from '../components/Common/Actions/Delete';
 import { createProject, getProjects } from '../store/projects';
 import { PROJECTS_PATH } from '../utils/routes';
 import { Link } from 'react-router-dom';
+import Dropdown from '../components/Inputs/Dropdown';
+import { getOrganizations } from '../store/organization';
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -20,9 +22,12 @@ const Projects = () => {
   const createProjectRef = useRef();
 
   const { projects, error, isLoading } = useSelector((state) => state.projects);
+  const { organizations, currentOrganization } = useSelector((state) => state.organization);
+  const { session } = useSelector((state) => state.user);
 
   const [formData, setFormData] = useState({
-    name: ''
+    name: '',
+    organization: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -60,11 +65,11 @@ const Projects = () => {
       createProjectRef.current.checked = false;
     }
 
-    setFormData({ name: '' });
+    setFormData({ name: '', organization: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: '' });
+    setFormData({ name: '', organization: '' });
     createProjectRef.current.checked = true;
   };
 
@@ -73,8 +78,11 @@ const Projects = () => {
   }, [formData]);
 
   useEffect(() => {
-    dispatch(getProjects());
-  }, []);
+    if (currentOrganization !== '') {
+      dispatch(getProjects(currentOrganization));
+    }
+    dispatch(getOrganizations(session.$id));
+  }, [currentOrganization]);
 
   return (
     <Layout>
@@ -83,8 +91,7 @@ const Projects = () => {
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
-            disabled={error || isLoading}
-          >
+            disabled={error || isLoading}>
             {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${PROJECT_ENTITY}`)}
           </button>
         </ViewHeader>
@@ -93,8 +100,7 @@ const Projects = () => {
             mode={CREATE_MODE}
             entity={t(`entities.${PROJECT_ENTITY}`)}
             composedKey={`${CREATE_MODE}__${PROJECT_ENTITY}`}
-            modalRef={createProjectRef}
-          >
+            modalRef={createProjectRef}>
             <form action="">
               <TextInput
                 name={INPUT_NAME}
@@ -105,13 +111,26 @@ const Projects = () => {
                 errors={errors[INPUT_NAME]}
                 setErrors={setErrors}
               />
+              <Dropdown
+                name="organization"
+                required
+                disabled={isLoading}
+                onChange={onChange}
+                value={formData.organization}
+                errors={errors.organization}
+                setErrors={setErrors}>
+                {organizations.map((organization) => (
+                  <option key={organization.$id} value={organization.$id}>
+                    {organization.name}
+                  </option>
+                ))}
+              </Dropdown>
               <div className="flex flex-col mt-6">
                 <button
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
-                >
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}>
                   {t('actions.save')}
                 </button>
               </div>
@@ -120,7 +139,15 @@ const Projects = () => {
           <Table
             name={PROJECT_ENTITY}
             data={projects}
-            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId', 'teamId']}
+            hidden={[
+              '$id',
+              '$updatedAt',
+              '$permissions',
+              '$collectionId',
+              '$databaseId',
+              'teamId',
+              'organization'
+            ]}
             customCells={[
               {
                 column: 'name',

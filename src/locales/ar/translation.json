@@ -2,7 +2,12 @@
   "menu": {
     "home": "الرئيسية",
     "projects": "المشاريع",
-    "teams": "الفرق"
+    "tasks": "المهام",
+    "teams": "الفرق",
+    "teamMembers": "أعضاء الفريق",
+    "settings": "الإعدادات",
+    "members": "الأعضاء",
+    "organizations": "المنظمات"
   },
   "languages": {
     "en": "English",
@@ -17,53 +22,108 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "خطأ",
+    "success": "تم بنجاح",
+    "warning": "تحذير",
+    "info": "معلومات"
+  },
+  "messages": {
+    "logout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "delete": "هل أنت متأكد أنك تريد حذف هذا {{entity}}؟"
+  },
+  "error_messages": {
+    "load_teams": "خطأ في تحميل الفرق.",
+    "load_team_members": "خطأ في تحميل أعضاء الفريق.",
+    "create_team": "خطأ في إنشاء الفريق.",
+    "create_team_member": "خطأ في إنشاء عضو في الفريق."
+  },
+  "success_messages": {
+    "create_team": "تم إنشاء الفريق بنجاح.",
+    "create_team_member": "تم إنشاء عضو الفريق بنجاح.",
+    "create_project": "تم إنشاء المشروع بنجاح."
+  },
   "errors": {
-    "no_error": " ",
-    "default_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى في وقت لاحق.",
+    "no_error": "",
+    "default_error": "حدث خطأ غير متوقع. الرجاء المحاولة مرة أخرى لاحقا.",
     "user_invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-    "user_already_exists": "البريد الإلكتروني قيد الاستخدام بالفعل.",
-    "general_unauthorized_scope": "ليس لديك إذن لإجراء هذا الإجراء.",
+    "user_already_exists": "البريد الإلكتروني مستخدم بالفعل.",
+    "general_unauthorized_scope": "ليس لديك الإذن للقيام بهذا الإجراء.",
     "no_data_found": "لم يتم العثور على سجلات.",
-    "error_login": "خطأ أثناء تسجيل الدخول.",
+    "error_login": "خطأ في تسجيل الدخول.",
     "required_field": "هذا الحقل مطلوب.",
     "invalid_email": "البريد الإلكتروني غير صالح.",
     "one_uppercase": "حرف كبير واحد.",
     "one_lowercase": "حرف صغير واحد.",
     "one_number": "رقم واحد.",
     "one_special_character": "رمز خاص واحد !@#$%^&*",
-    "minimum_password_characters": "الحد الأدنى 8 أحرف."
+    "minimum_password_characters": "الحد الأدنى هو 8 أحرف."
   },
   "actions": {
     "logout": "تسجيل الخروج",
     "login": "تسجيل الدخول",
-    "register": "إنشاء حساب"
+    "register": "إنشاء حساب",
+    "create": "إنشاء",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "view": "عرض"
   },
   "labels": {
     "search": "بحث",
-    "home": "الصفحة الرئيسية",
+    "home": "الرئيسية",
     "admin": "مدير",
     "password": "كلمة المرور",
     "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
     "name": "الاسم",
-    "lastname": "اللقب",
+    "lastname": "اسم العائلة",
     "confirm_password": "تأكيد كلمة المرور",
     "forget": "هل نسيت كلمة المرور؟",
-    "register": "ليس لديك حساب؟ سجل",
-    "login": "هل لديك حساب بالفعل؟ تسجيل الدخول"
+    "register": "ليس لديك حساب؟ اشترك",
+    "login": "لديك حساب بالفعل؟ تسجيل الدخول",
+    "page": "صفحة",
+    "of": "من",
+    "go_to_page": "اذهب إلى الصفحة",
+    "records": "السجلات",
+    "showing": "عرض",
+    "account": "حسابي",
+    "organization": "المنظمة",
+    "select": "اختر"
   },
   "hero": {
-    "login_title": "مرحبا!",
-    "login_description": "في الصورة الجديدة لإدارة المشاريع.",
+    "login_title": "مرحباً!",
+    "login_description": "إلى الصورة الجديدة لإدارة المشاريع.",
     "register_title": "سجل الآن!",
-    "register_description": "ابدأ في الاستمتاع بإدارة المشاريع."
+    "register_description": "ابدأ في التمتع بإدارة المشاريع."
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "الإجراءات",
       "name": "الاسم",
-      "size": "الأعضاء",
-      "creation_date": "تاريخ الإنشاء",
       "status": "الحالة",
-      "country": "البلد"
-    }
+      "country": "البلد",
+      "$createdAt": "تاريخ الإنشاء",
+      "email": "البريد الإلكتروني",
+      "organization": "المنظمة"
+    },
+    "team": {
+      "size": "الأعضاء"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "فريق",
+    "user": "مستخدم",
+    "task": "مهمة",
+    "team_member": "عضو الفريق",
+    "project": "مشروع",
+    "member": "عضو",
+    "organization": "منظمة"
+  },
+  "status": {
+    "active": "نشط",
+    "inactive": "غير نشط"
   }
 }

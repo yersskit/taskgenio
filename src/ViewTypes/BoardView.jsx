@@ -12,7 +12,7 @@ function BoardView() {
       {
         id: '1',
         data: {
-          title: 'Item 1',
+          title: 'Develop table view',
           description: 'Description 1',
           priority: 'high',
           owner: '648954d533b1a0f1e659',
@@ -41,7 +41,7 @@ function BoardView() {
       {
         id: '2',
         data: {
-          title: 'Item 2',
+          title: 'Create redux store',
           description: 'Description 2',
           priority: 'high',
           owner: '64895523732371a9d41e',
@@ -58,6 +58,35 @@ function BoardView() {
             {
               description: 'Task 4',
               completed: false,
+              assignedTo: '648955629fd327b76c01'
+            }
+          ],
+          userStories: [],
+          diagrams: []
+        }
+      }
+    ],
+    Done: [
+      {
+        id: '3',
+        data: {
+          title: 'Develop mock data',
+          description: 'Description 2',
+          priority: 'high',
+          owner: '64895523732371a9d41e',
+          createdBy: '648955049b4335a609fd',
+          dueDate: '',
+          parent: null,
+          type: 'task_type',
+          tasks: [
+            {
+              description: 'Task 1',
+              completed: true,
+              assignedTo: '648955375b4c4e69baa6'
+            },
+            {
+              description: 'Task 4',
+              completed: true,
               assignedTo: '648955629fd327b76c01'
             }
           ],

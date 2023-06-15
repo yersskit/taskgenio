@@ -7,7 +7,7 @@ import {
   DndContext,
   DragOverlay,
   getFirstCollision,
-  MouseSensor,
+  PointerSensor,
   TouchSensor,
   useSensors,
   useSensor,
@@ -88,7 +88,19 @@ const MultipleContainers = ({ items, setItems, modifiers }) => {
     [activeId, items]
   );
 
-  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5
+      }
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 250,
+        tolerance: 5
+      }
+    })
+  );
 
   const findContainer = (id) => {
     if (Object.keys(items).includes(id)) {

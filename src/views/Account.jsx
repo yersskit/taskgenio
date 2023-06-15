@@ -6,7 +6,7 @@ import ViewHeader from '../components/Layout/ViewHeader';
 import ViewContent from '../components/Layout/ViewContent';
 import { useDispatch, useSelector } from 'react-redux';
 import EditPhotoIcon from '../components/Common/Icons/EditPhotoIcon';
-import { getAvatar, setLoading, updateAvatar, uploadAvatar } from '../store/user';
+import { getAvatar, updateAvatar, uploadAvatar } from '../store/user';
 import placeholderPhoto from '/placeholderPhoto.jpg';
 import Resizer from 'react-image-file-resizer';
 import TextInput from './../components/Inputs/TextInput';
@@ -37,7 +37,6 @@ const Account = () => {
       fileInput = true;
     }
     if (fileInput) {
-      dispatch(setLoading(true));
       Resizer.imageFileResizer(
         event.target.files[0],
         500, // max width
@@ -48,6 +47,7 @@ const Account = () => {
         (file) => {
           // Your upload logic here
 
+          console.log('action: ', action);
           if (action === 'upload') {
             dispatch(uploadAvatar({ file: file, userId: session.$id }));
           } else {
@@ -60,17 +60,7 @@ const Account = () => {
   };
 
   useEffect(() => {
-    if (session.prefs.avatar) {
-      dispatch(getAvatar(session.prefs.avatar));
-    }
-  }, [session.prefs.avatar]);
-
-  useEffect(() => {
-    if (!session.avatarUrl) {
-      dispatch(getAvatar(session.prefs.avatar));
-    } else {
-      dispatch(setLoading(false));
-    }
+    dispatch(getAvatar(session.email));
   }, [session.avatarUrl]);
 
   return (

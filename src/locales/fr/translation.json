@@ -2,7 +2,12 @@
   "menu": {
     "home": "Accueil",
     "projects": "Projets",
-    "teams": "Équipes"
+    "tasks": "Tâches",
+    "teams": "Équipes",
+    "teamMembers": "Membres de l'équipe",
+    "settings": "Paramètres",
+    "members": "Membres",
+    "organizations": "Organisations"
   },
   "languages": {
     "en": "English",
@@ -17,12 +22,33 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "Erreur",
+    "success": "Terminé",
+    "warning": "Avertissement",
+    "info": "Information"
+  },
+  "messages": {
+    "logout": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "delete": "Êtes-vous sûr de vouloir supprimer ce {{entity}}?"
+  },
+  "error_messages": {
+    "load_teams": "Erreur lors du chargement des équipes.",
+    "load_team_members": "Erreur lors du chargement des membres de l'équipe.",
+    "create_team": "Erreur lors de la création de l'équipe.",
+    "create_team_member": "Erreur lors de la création du membre de l'équipe."
+  },
+  "success_messages": {
+    "create_team": "Équipe créée avec succès.",
+    "create_team_member": "Membre de l'équipe créé avec succès.",
+    "create_project": "Projet créé avec succès."
+  },
   "errors": {
-    "no_error": " ",
+    "no_error": "",
     "default_error": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard.",
     "user_invalid_credentials": "E-mail ou mot de passe incorrect.",
     "user_already_exists": "L'e-mail est déjà utilisé.",
-    "general_unauthorized_scope": "Vous n'avez pas la permission d'effectuer cette action.",
+    "general_unauthorized_scope": "Vous n'avez pas l'autorisation d'effectuer cette action.",
     "no_data_found": "Aucun enregistrement trouvé.",
     "error_login": "Erreur lors de la connexion.",
     "required_field": "Ce champ est requis.",
@@ -34,36 +60,70 @@
     "minimum_password_characters": "Minimum 8 caractères."
   },
   "actions": {
-    "logout": "Déconnexion",
-    "login": "Connexion",
-    "register": "Créer un compte"
+    "logout": "Se déconnecter",
+    "login": "Se connecter",
+    "register": "Créer un compte",
+    "create": "Créer",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "edit": "Éditer",
+    "delete": "Supprimer",
+    "view": "Voir"
   },
   "labels": {
-    "search": "Recherche",
+    "search": "Rechercher",
     "home": "Accueil",
     "admin": "Admin",
     "password": "Mot de passe",
     "email": "E-mail",
+    "phone": "Téléphone",
     "name": "Prénom",
     "lastname": "Nom",
     "confirm_password": "Confirmer le mot de passe",
-    "forget": "Mot de passe oublié?",
-    "register": "Pas de compte? Inscrivez-vous",
-    "login": "Vous avez déjà un compte? Connectez-vous"
+    "forget": "Mot de passe oublié ?",
+    "register": "Vous n'avez pas de compte ? Inscrivez-vous",
+    "login": "Vous avez déjà un compte ? Connectez-vous",
+    "page": "Page",
+    "of": "de",
+    "go_to_page": "Aller à la page",
+    "records": "enregistrements",
+    "showing": "Affichage",
+    "account": "Mon compte",
+    "organization": "Organisation",
+    "select": "Sélectionner"
   },
   "hero": {
-    "login_title": "Bienvenue!",
-    "login_description": "Dans la nouvelle apparence de la gestion de projet.",
-    "register_title": "Inscrivez-vous maintenant!",
+    "login_title": "Bienvenue !",
+    "login_description": "À la nouvelle image de la gestion de projet.",
+    "register_title": "Inscrivez-vous maintenant !",
     "register_description": "Commencez à profiter de la gestion de projet."
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "Actions",
       "name": "Nom",
-      "size": "Membres",
-      "creation_date": "Date de création",
       "status": "Statut",
-      "country": "Pays"
-    }
+      "country": "Pays",
+      "$createdAt": "Date de création",
+      "email": "E-mail",
+      "organization": "Organisation"
+    },
+    "team": {
+      "size": "Membres"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "Équipe",
+    "user": "Utilisateur",
+    "task": "Tâche",
+    "team_member": "Membre de l'équipe",
+    "project": "Projet",
+    "member": "Membre",
+    "organization": "Organisation"
+  },
+  "status": {
+    "active": "Actif",
+    "inactive": "Inactif"
   }
 }

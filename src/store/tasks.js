@@ -4,7 +4,9 @@ import { database, databaseId } from '../utils/appwriteConfig';
 import { tasks_collection_id } from '../utils/collections';
 
 const initialState = {
-  tasks: []
+  tasks: [],
+  currentTask: null,
+  drawerOpen: false
 };
 
 export const createTask = createAsyncThunk('tasks/createTask', async (payload) => {
@@ -18,11 +20,19 @@ export const createTask = createAsyncThunk('tasks/createTask', async (payload) =
   }
 });
 
-export const userSlice = createSlice({
+export const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentTask: (state, action) => {
+      state.currentTask = action.payload;
+    },
+    setDrawerOpen: (state, action) => {
+      state.drawerOpen = action.payload;
+    }
+  },
   extraReducers: () => {}
 });
 
-export default userSlice.reducer;
+export const { setCurrentTask, setDrawerOpen } = tasksSlice.actions;
+export default tasksSlice.reducer;

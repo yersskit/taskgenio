@@ -2,7 +2,12 @@
   "menu": {
     "home": "Home",
     "projects": "Projects",
-    "teams": "Teams"
+    "tasks": "Tasks",
+    "teams": "Teams",
+    "teamMembers": "Team Members",
+    "settings": "Settings",
+    "members": "Members",
+    "organizations": "Organizations"
   },
   "languages": {
     "en": "English",
@@ -17,12 +22,33 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "Error",
+    "success": "Completed",
+    "warning": "Warning",
+    "info": "Information"
+  },
+  "messages": {
+    "logout": "Are you sure you want to log out?",
+    "delete": "Are you sure you want to delete this {{entity}}?"
+  },
+  "error_messages": {
+    "load_teams": "Error loading teams.",
+    "load_team_members": "Error loading team members.",
+    "create_team": "Error creating team.",
+    "create_team_member": "Error creating team member."
+  },
+  "success_messages": {
+    "create_team": "Team successfully created.",
+    "create_team_member": "Team member successfully created.",
+    "create_project": "Project successfully created."
+  },
   "errors": {
-    "no_error": " ",
-    "default_error": "An unexpected error has occurred. Please try again later.",
+    "no_error": "",
+    "default_error": "An unexpected error occurred. Please try again later.",
     "user_invalid_credentials": "Incorrect email or password.",
     "user_already_exists": "The email is already in use.",
-    "general_unauthorized_scope": "You do not have permission to perform this action.",
+    "general_unauthorized_scope": "You do not have permissions to perform this action.",
     "no_data_found": "No records found.",
     "error_login": "Error logging in.",
     "required_field": "This field is required.",
@@ -36,7 +62,13 @@
   "actions": {
     "logout": "Log out",
     "login": "Log in",
-    "register": "Create account"
+    "register": "Create account",
+    "create": "Create",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View"
   },
   "labels": {
     "search": "Search",
@@ -44,26 +76,54 @@
     "admin": "Admin",
     "password": "Password",
     "email": "Email",
+    "phone": "Phone",
     "name": "Name",
-    "lastname": "Last name",
+    "lastname": "Lastname",
     "confirm_password": "Confirm password",
     "forget": "Forgot your password?",
-    "register": "Don't have an account? Register",
-    "login": "Already have an account? Log in"
+    "register": "Don't have an account? Sign up",
+    "login": "Already have an account? Log in",
+    "page": "Page",
+    "of": "of",
+    "go_to_page": "Go to page",
+    "records": "records",
+    "showing": "Showing",
+    "account": "My account",
+    "organization": "Organization",
+    "select": "Select"
   },
   "hero": {
     "login_title": "Welcome!",
-    "login_description": "To the new look of project management.",
+    "login_description": "To the new face of project management.",
     "register_title": "Register now!",
     "register_description": "Start enjoying project management."
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "Actions",
       "name": "Name",
-      "size": "Members",
-      "creation_date": "Creation date",
       "status": "Status",
-      "country": "Country"
-    }
+      "country": "Country",
+      "$createdAt": "Creation date",
+      "email": "Email",
+      "organization": "Organization"
+    },
+    "team": {
+      "size": "Members"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "Team",
+    "user": "User",
+    "task": "Task",
+    "team_member": "Team Member",
+    "project": "Project",
+    "member": "Member",
+    "organization": "Organization"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
   }
 }

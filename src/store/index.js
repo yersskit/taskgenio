@@ -9,6 +9,7 @@ import loader from './loader';
 import teams from './teams';
 import toast from './toast';
 import projects from './projects';
+import organization from './organization';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
   history: createBrowserHistory()
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   loader,
   teams,
   toast,
-  projects
+  projects,
+  organization
 });
 
 export const store = configureStore({

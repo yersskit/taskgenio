@@ -1,8 +1,13 @@
 {
   "menu": {
-    "home": "Start",
+    "home": "Startseite",
     "projects": "Projekte",
-    "teams": "Ausrüstung"
+    "tasks": "Aufgaben",
+    "teams": "Teams",
+    "teamMembers": "Teammitglieder",
+    "settings": "Einstellungen",
+    "members": "Mitglieder",
+    "organizations": "Organisationen"
   },
   "languages": {
     "en": "English",
@@ -17,16 +22,37 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "Fehler",
+    "success": "Erfolgreich",
+    "warning": "Warnung",
+    "info": "Informationen"
+  },
+  "messages": {
+    "logout": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "delete": "Sind Sie sicher, dass Sie diese {{entity}} löschen möchten?"
+  },
+  "error_messages": {
+    "load_teams": "Fehler beim Laden der Teams.",
+    "load_team_members": "Fehler beim Laden der Teammitglieder.",
+    "create_team": "Fehler beim Erstellen des Teams.",
+    "create_team_member": "Fehler beim Erstellen des Teammitglieds."
+  },
+  "success_messages": {
+    "create_team": "Team erfolgreich erstellt.",
+    "create_team_member": "Teammitglied erfolgreich erstellt.",
+    "create_project": "Projekt erfolgreich erstellt."
+  },
   "errors": {
-    "no_error": " ",
-    "default_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal.",
-    "user_invalid_credentials": "E-Mail oder Passwort sind falsch.",
-    "user_already_exists": "Die E-Mail-Adresse ist bereits in Gebrauch.",
+    "no_error": "",
+    "default_error": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.",
+    "user_invalid_credentials": "E-Mail oder Passwort falsch.",
+    "user_already_exists": "Die E-Mail ist bereits vergeben.",
     "general_unauthorized_scope": "Sie haben keine Berechtigung, diese Aktion durchzuführen.",
-    "no_data_found": "Keine Datensätze gefunden.",
+    "no_data_found": "Keine Aufzeichnungen gefunden.",
     "error_login": "Fehler beim Anmelden.",
     "required_field": "Dieses Feld ist erforderlich.",
-    "invalid_email": "Die E-Mail-Adresse ist ungültig.",
+    "invalid_email": "Die E-Mail ist ungültig.",
     "one_uppercase": "Ein Großbuchstabe.",
     "one_lowercase": "Ein Kleinbuchstabe.",
     "one_number": "Eine Zahl.",
@@ -36,34 +62,68 @@
   "actions": {
     "logout": "Abmelden",
     "login": "Anmelden",
-    "register": "Konto erstellen"
+    "register": "Konto erstellen",
+    "create": "Erstellen",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "view": "Anzeigen"
   },
   "labels": {
     "search": "Suche",
-    "home": "Start",
+    "home": "Startseite",
     "admin": "Administrator",
     "password": "Passwort",
     "email": "E-Mail",
-    "name": "Vorname",
+    "phone": "Telefon",
+    "name": "Name",
     "lastname": "Nachname",
     "confirm_password": "Passwort bestätigen",
     "forget": "Passwort vergessen?",
     "register": "Noch kein Konto? Registrieren",
-    "login": "Schon ein Konto? Anmelden"
+    "login": "Schon ein Konto? Anmelden",
+    "page": "Seite",
+    "of": "von",
+    "go_to_page": "Gehe zu Seite",
+    "records": "Aufzeichnungen",
+    "showing": "Zeige",
+    "account": "Mein Konto",
+    "organization": "Organisation",
+    "select": "Auswählen"
   },
   "hero": {
     "login_title": "Willkommen!",
-    "login_description": "Zum neuen Erscheinungsbild des Projektmanagements.",
+    "login_description": "Zum neuen Gesicht des Projektmanagements.",
     "register_title": "Jetzt registrieren!",
     "register_description": "Beginnen Sie, das Projektmanagement zu genießen."
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "Aktionen",
       "name": "Name",
-      "size": "Mitglieder",
-      "creation_date": "Erstellungsdatum",
       "status": "Status",
-      "country": "Land"
-    }
+      "country": "Land",
+      "$createdAt": "Erstellungsdatum",
+      "email": "E-Mail",
+      "organization": "Organisation"
+    },
+    "team": {
+      "size": "Mitglieder"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "Team",
+    "user": "Benutzer",
+    "task": "Aufgabe",
+    "team_member": "Teammitglied",
+    "project": "Projekt",
+    "member": "Mitglied",
+    "organization": "Organisation"
+  },
+  "status": {
+    "active": "Aktiv",
+    "inactive": "Inaktiv"
   }
 }

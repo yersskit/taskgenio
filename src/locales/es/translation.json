@@ -5,7 +5,9 @@
     "tasks": "Tareas",
     "teams": "Equipos",
     "teamMembers": "Miembros del equipo",
-    "settings": "Configuración"
+    "settings": "Configuración",
+    "members": "Miembros",
+    "organizations": "Organizaciones"
   },
   "languages": {
     "en": "English",
@@ -86,7 +88,9 @@
     "go_to_page": "Ir a la página",
     "records": "registros",
     "showing": "Mostrando",
-    "account": "Mi cuenta"
+    "account": "Mi cuenta",
+    "organization": "Organización",
+    "select": "Seleccionar"
   },
   "hero": {
     "login_title": "¡Bienvenido!",
@@ -100,7 +104,9 @@
       "name": "Nombre",
       "status": "Estado",
       "country": "País",
-      "$createdAt": "Fecha de creación"
+      "$createdAt": "Fecha de creación",
+      "email": "Correo electrónico",
+      "organization": "Organización"
     },
     "team": {
       "size": "Miembros"
@@ -112,7 +118,9 @@
     "user": "Usuario",
     "task": "Tarea",
     "team_member": "Miembro del equipo",
-    "project": "Proyecto"
+    "project": "Proyecto",
+    "member": "Miembro",
+    "organization": "Organización"
   },
   "status": {
     "active": "Activo",

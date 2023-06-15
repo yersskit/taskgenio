@@ -2,7 +2,12 @@
   "menu": {
     "home": "Início",
     "projects": "Projetos",
-    "teams": "Equipes"
+    "tasks": "Tarefas",
+    "teams": "Equipes",
+    "teamMembers": "Membros da equipe",
+    "settings": "Configurações",
+    "members": "Membros",
+    "organizations": "Organizações"
   },
   "languages": {
     "en": "English",
@@ -17,8 +22,29 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "Erro",
+    "success": "Concluído",
+    "warning": "Aviso",
+    "info": "Informação"
+  },
+  "messages": {
+    "logout": "Tem certeza de que deseja sair?",
+    "delete": "Tem certeza de que deseja excluir este {{entity}}?"
+  },
+  "error_messages": {
+    "load_teams": "Erro ao carregar as equipes.",
+    "load_team_members": "Erro ao carregar os membros da equipe.",
+    "create_team": "Erro ao criar a equipe.",
+    "create_team_member": "Erro ao criar o membro da equipe."
+  },
+  "success_messages": {
+    "create_team": "Equipe criada com sucesso.",
+    "create_team_member": "Membro da equipe criado com sucesso.",
+    "create_project": "Projeto criado com sucesso."
+  },
   "errors": {
-    "no_error": " ",
+    "no_error": "",
     "default_error": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.",
     "user_invalid_credentials": "E-mail ou senha incorretos.",
     "user_already_exists": "O e-mail já está em uso.",
@@ -36,34 +62,68 @@
   "actions": {
     "logout": "Sair",
     "login": "Entrar",
-    "register": "Criar conta"
+    "register": "Criar conta",
+    "create": "Criar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "view": "Ver"
   },
   "labels": {
-    "search": "Pesquisar",
+    "search": "Buscar",
     "home": "Início",
     "admin": "Administrador",
     "password": "Senha",
     "email": "E-mail",
+    "phone": "Telefone",
     "name": "Nome",
     "lastname": "Sobrenome",
     "confirm_password": "Confirmar senha",
     "forget": "Esqueceu sua senha?",
-    "register": "Não tem uma conta? Cadastre-se",
-    "login": "Já tem uma conta? Entre"
+    "register": "Não tem uma conta? Registre-se",
+    "login": "Já tem uma conta? Faça login",
+    "page": "Página",
+    "of": "de",
+    "go_to_page": "Ir para a página",
+    "records": "registros",
+    "showing": "Mostrando",
+    "account": "Minha conta",
+    "organization": "Organização",
+    "select": "Selecionar"
   },
   "hero": {
     "login_title": "Bem-vindo!",
-    "login_description": "À nova aparência do gerenciamento de projetos.",
-    "register_title": "Registre-se agora!",
-    "register_description": "Comece a desfrutar do gerenciamento de projetos."
+    "login_description": "Para a nova imagem de gestão de projetos.",
+    "register_title": "Cadastre-se agora!",
+    "register_description": "Comece a aproveitar a gestão de projetos."
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "Ações",
       "name": "Nome",
-      "size": "Membros",
-      "creation_date": "Data de criação",
       "status": "Status",
-      "country": "País"
-    }
+      "country": "País",
+      "$createdAt": "Data de criação",
+      "email": "E-mail",
+      "organization": "Organização"
+    },
+    "team": {
+      "size": "Membros"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "Equipe",
+    "user": "Usuário",
+    "task": "Tarefa",
+    "team_member": "Membro da equipe",
+    "project": "Projeto",
+    "member": "Membro",
+    "organization": "Organização"
+  },
+  "status": {
+    "active": "Ativo",
+    "inactive": "Inativo"
   }
 }

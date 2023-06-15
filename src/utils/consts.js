@@ -33,8 +33,10 @@ export const APPROVED_STATUS = 'approved';
 
 export const TEAM_ENTITY = 'team';
 export const TEAM_MEMBER_ENTITY = 'team_member';
+export const MEMBER_ENTITY = 'member';
 export const TASK_ENTITY = 'task';
 export const PROJECT_ENTITY = 'project';
+export const ORGANIZATION_ENTITY = 'organization';
 
 export const CREATE_MODE = 'create';
 export const DELETE_MODE = 'delete';
@@ -61,3 +63,8 @@ export const BUG_TYPE = 'bug_type';
 export const PRIORITY_LOW = 'low';
 export const PRIORITY_MEDIUM = 'medium';
 export const PRIORITY_HIGH = 'high';
+
+export const ORGANIZATION_OWNER = 'owner';
+export const ORGANIZATION_MEMBER = 'member';
+
+// establecer como guardar las organizaciones

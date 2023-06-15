@@ -9,9 +9,13 @@ import Projects from './views/Projects';
 import Home from './views/Home';
 import Teams from './views/Teams';
 import {
+  ACCOUNT_PATH,
+  EDITOR_PATH,
   FORGET_PATH,
   HOME_PATH,
   LOGIN_PATH,
+  MEMBERS_PATH,
+  ORGANIZATIONS_PATH,
   PROJECTS_PATH,
   REGISTER_PATH,
   RESET_PATH,
@@ -32,6 +36,9 @@ import Settings from './views/Settings';
 import Project from './views/Project';
 import Account from './views/Account';
 import FullPageLoader from './components/Common/FullPageLoader';
+import EditorView from './views/Editor';
+import Members from './views/Members';
+import Organizations from './views/Organizations';
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
@@ -60,7 +67,10 @@ const App = () => (
             <Route element={<Project />} path={`${PROJECTS_PATH}/:projectId`} />
             <Route element={<Teams />} path={TEAMS_PATH} />
             <Route element={<Team />} path={`${TEAMS_PATH}/:teamId`} />
-            <Route element={<Account />} path="/account" />
+            <Route element={<Account />} path={ACCOUNT_PATH} />
+            <Route element={<EditorView />} path={EDITOR_PATH} />
+            <Route element={<Members />} path={MEMBERS_PATH} />
+            <Route element={<Organizations />} path={ORGANIZATIONS_PATH} />
           </Route>
           <Route element={<NoSessionRoutes />}>
             <Route element={<Login />} path={LOGIN_PATH} />

@@ -3,8 +3,7 @@ import Layout from '../components/Layout/Layout';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../components/Common/Modal';
-import { CREATE_MODE, INPUT_NAME, TEAM_MEMBER_ENTITY } from '../utils/consts';
-import TextInput from './../components/Inputs/TextInput';
+import { CREATE_MODE, INPUT_EMAIL, INPUT_NAME, TEAM_MEMBER_ENTITY } from '../utils/consts';
 import { createTeamMember, getTeamMembers } from '../store/teams';
 import ViewHeader from '../components/Layout/ViewHeader';
 import ViewContent from '../components/Layout/ViewContent';
@@ -13,6 +12,8 @@ import Table from './../components/Common/Table/Table';
 import { useParams } from 'react-router-dom';
 import useSearchParams from '../hooks/useSearchParams';
 import Delete from '../components/Common/Actions/Delete';
+import EmailInput from './../components/Inputs/EmailInput';
+import TextInput from './../components/Inputs/TextInput';
 
 const Team = () => {
   const { t } = useTranslation();
@@ -25,6 +26,7 @@ const Team = () => {
   const { teamMembers, isLoading, error } = useSelector((state) => state.teams);
 
   const [formData, setFormData] = useState({
+    email: '',
     name: ''
   });
   const [errors, setErrors] = useState({});
@@ -63,11 +65,11 @@ const Team = () => {
       createTeamMemberRef.current.checked = false;
     }
 
-    setFormData({ name: '' });
+    setFormData({ email: '', name: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: '' });
+    setFormData({ email: '', name: '' });
     createTeamMemberRef.current.checked = true;
   };
 
@@ -86,8 +88,7 @@ const Team = () => {
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
-            disabled={error || isLoading}
-          >
+            disabled={error || isLoading}>
             {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${TEAM_MEMBER_ENTITY}`)}
           </button>
         </ViewHeader>
@@ -96,16 +97,24 @@ const Team = () => {
             mode={CREATE_MODE}
             entity={t(`entities.${TEAM_MEMBER_ENTITY}`)}
             composedKey={`${CREATE_MODE}__${TEAM_MEMBER_ENTITY}`}
-            modalRef={createTeamMemberRef}
-          >
+            modalRef={createTeamMemberRef}>
             <form action="">
               <TextInput
                 name={INPUT_NAME}
                 required
                 disabled={isLoading}
                 onChange={onChange}
-                value={formData[INPUT_NAME]}
-                errors={errors[INPUT_NAME]}
+                value={formData.name}
+                errors={errors.name}
+                setErrors={setErrors}
+              />
+              <EmailInput
+                name={INPUT_EMAIL}
+                required
+                disabled={isLoading}
+                onChange={onChange}
+                value={formData.email}
+                errors={errors.email}
                 setErrors={setErrors}
               />
               <div className="flex flex-col mt-6">
@@ -113,8 +122,7 @@ const Team = () => {
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
-                >
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}>
                   {t('actions.save')}
                 </button>
               </div>
@@ -123,7 +131,17 @@ const Team = () => {
           <Table
             name={TEAM_MEMBER_ENTITY}
             data={teamMembers}
-            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId', 'teamId']}
+            hidden={[
+              '$id',
+              '$updatedAt',
+              '$permissions',
+              '$collectionId',
+              '$databaseId',
+              'teamId',
+              'avatar',
+              'role',
+              'userId'
+            ]}
             controls={(row) => (
               <>
                 <Delete

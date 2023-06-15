@@ -44,7 +44,8 @@ export const getProjects = createAsyncThunk(
     try {
       dispatch(incrementLoadingCounter());
       let response = await database.listDocuments(databaseId, projects_collection_id, [
-        Query.equal('status', ACTIVE_STATUS)
+        Query.equal('status', ACTIVE_STATUS),
+        Query.equal('organization', payload)
       ]);
       dispatch(decrementLoadingCounter());
       return response;

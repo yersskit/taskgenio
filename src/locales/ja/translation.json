@@ -2,7 +2,12 @@
   "menu": {
     "home": "ホーム",
     "projects": "プロジェクト",
-    "teams": "チーム"
+    "tasks": "タスク",
+    "teams": "チーム",
+    "teamMembers": "チームメンバー",
+    "settings": "設定",
+    "members": "メンバー",
+    "organizations": "組織"
   },
   "languages": {
     "en": "English",
@@ -17,26 +22,53 @@
     "ko": "한국어",
     "it": "Italiano"
   },
+  "alerts": {
+    "error": "エラー",
+    "success": "完了",
+    "warning": "警告",
+    "info": "情報"
+  },
+  "messages": {
+    "logout": "ログアウトしますか？",
+    "delete": "この{{entity}}を削除しますか？"
+  },
+  "error_messages": {
+    "load_teams": "チームの読み込みエラー。",
+    "load_team_members": "チームメンバーの読み込みエラー。",
+    "create_team": "チームの作成エラー。",
+    "create_team_member": "チームメンバーの作成エラー。"
+  },
+  "success_messages": {
+    "create_team": "チームが正常に作成されました。",
+    "create_team_member": "チームメンバーが正常に作成されました。",
+    "create_project": "プロジェクトが正常に作成されました。"
+  },
   "errors": {
-    "no_error": " ",
+    "no_error": "",
     "default_error": "予期しないエラーが発生しました。後でもう一度お試しください。",
-    "user_invalid_credentials": "メールアドレスまたはパスワードが間違っています。",
-    "user_already_exists": "このメールアドレスはすでに使用されています。",
-    "general_unauthorized_scope": "この操作を実行する権限がありません。",
+    "user_invalid_credentials": "メールアドレスまたはパスワードが正しくありません。",
+    "user_already_exists": "そのメールアドレスはすでに使用されています。",
+    "general_unauthorized_scope": "このアクションを実行する権限がありません。",
     "no_data_found": "レコードが見つかりません。",
-    "error_login": "ログイン中にエラーが発生しました。",
-    "required_field": "この項目は必須です。",
-    "invalid_email": "無効なメールアドレスです。",
-    "one_uppercase": "大文字1つ。",
-    "one_lowercase": "小文字1つ。",
-    "one_number": "数字1つ。",
-    "one_special_character": "特殊文字1つ !@#$%^&*",
-    "minimum_password_characters": "最低8文字。"
+    "error_login": "ログインエラー。",
+    "required_field": "このフィールドは必須です。",
+    "invalid_email": "メールアドレスが無効です。",
+    "one_uppercase": "大文字を一つ含めてください。",
+    "one_lowercase": "小文字を一つ含めてください。",
+    "one_number": "数字を一つ含めてください。",
+    "one_special_character": "特殊文字を一つ含めてください !@#$%^&*",
+    "minimum_password_characters": "最小8文字。"
   },
   "actions": {
     "logout": "ログアウト",
     "login": "ログイン",
-    "register": "アカウントを作成"
+    "register": "アカウント作成",
+    "create": "作成",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "edit": "編集",
+    "delete": "削除",
+    "view": "表示"
   },
   "labels": {
     "search": "検索",
@@ -44,26 +76,54 @@
     "admin": "管理者",
     "password": "パスワード",
     "email": "メールアドレス",
+    "phone": "電話番号",
     "name": "名前",
-    "lastname": "苗字",
+    "lastname": "姓",
     "confirm_password": "パスワードを確認",
-    "forget": "パスワードをお忘れですか？",
-    "register": "アカウントを持っていませんか？登録",
-    "login": "すでにアカウントをお持ちですか？ログイン"
+    "forget": "パスワードを忘れましたか？",
+    "register": "アカウントを持っていませんか？登録する",
+    "login": "すでにアカウントを持っていますか？ログインする",
+    "page": "ページ",
+    "of": "の",
+    "go_to_page": "ページに移動",
+    "records": "レコード",
+    "showing": "表示",
+    "account": "私のアカウント",
+    "organization": "組織",
+    "select": "選択"
   },
   "hero": {
     "login_title": "ようこそ！",
-    "login_description": "プロジェクト管理の新しいルックへ。",
+    "login_description": "新しいプロジェクト管理へ。",
     "register_title": "今すぐ登録！",
-    "register_description": "プロジェクト管理を楽しみ始めよう。"
+    "register_description": "プロジェクト管理を楽しみ始めましょう。"
   },
   "tables": {
-    "teams": {
+    "common": {
+      "actions": "アクション",
       "name": "名前",
-      "size": "メンバー",
-      "creation_date": "作成日",
-      "status": "ステータス",
-      "country": "国"
-    }
+      "status": "状態",
+      "country": "国",
+      "$createdAt": "作成日",
+      "email": "メールアドレス",
+      "organization": "組織"
+    },
+    "team": {
+      "size": "メンバー"
+    },
+    "team_member": {}
+  },
+  "entities": {
+    "team": "チーム",
+    "user": "ユーザー",
+    "task": "タスク",
+    "team_member": "チームメンバー",
+    "project": "プロジェクト",
+    "member": "メンバー",
+    "organization": "組織"
+  },
+  "status": {
+    "active": "アクティブ",
+    "inactive": "非アクティブ"
   }
 }

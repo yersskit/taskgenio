@@ -12,6 +12,8 @@ import View from '../components/Layout/View';
 import Table from './../components/Common/Table/Table';
 import { Link } from 'react-router-dom';
 import { TEAMS_PATH } from '../utils/routes';
+import Dropdown from '../components/Inputs/Dropdown';
+import { getOrganizations } from '../store/organization';
 
 const Teams = () => {
   const { t } = useTranslation();
@@ -19,9 +21,12 @@ const Teams = () => {
   const createTeamRef = useRef();
 
   const { teams, isLoading, error } = useSelector((state) => state.teams);
+  const { organizations, currentOrganization } = useSelector((state) => state.organization);
+  const { session } = useSelector((state) => state.user);
 
   const [formData, setFormData] = useState({
-    name: ''
+    name: '',
+    organization: ''
   });
   const [errors, setErrors] = useState({});
   const [enableSubmit, setEnableSubmit] = useState(false);
@@ -59,11 +64,11 @@ const Teams = () => {
       createTeamRef.current.checked = false;
     }
 
-    setFormData({ name: '' });
+    setFormData({ name: '', organization: '' });
   };
 
   const handleOpenModal = () => {
-    setFormData({ name: '' });
+    setFormData({ name: '', organization: '' });
     createTeamRef.current.checked = true;
   };
 
@@ -72,8 +77,11 @@ const Teams = () => {
   }, [formData]);
 
   useEffect(() => {
-    dispatch(getTeams());
-  }, []);
+    if (currentOrganization !== '') {
+      dispatch(getTeams(currentOrganization));
+    }
+    dispatch(getOrganizations(session.$id));
+  }, [currentOrganization]);
 
   return (
     <Layout>
@@ -82,8 +90,7 @@ const Teams = () => {
           <button
             onClick={handleOpenModal}
             className="btn btn-sm btn-primary normal-case"
-            disabled={error || isLoading}
-          >
+            disabled={error || isLoading}>
             {t(`actions.${CREATE_MODE}`) + ' ' + t(`entities.${TEAM_ENTITY}`)}
           </button>
         </ViewHeader>
@@ -92,8 +99,7 @@ const Teams = () => {
             mode={CREATE_MODE}
             entity={t(`entities.${TEAM_ENTITY}`)}
             composedKey={`${CREATE_MODE}__${TEAM_ENTITY}`}
-            modalRef={createTeamRef}
-          >
+            modalRef={createTeamRef}>
             <form action="">
               <TextInput
                 name={INPUT_NAME}
@@ -104,13 +110,26 @@ const Teams = () => {
                 errors={errors[INPUT_NAME]}
                 setErrors={setErrors}
               />
+              <Dropdown
+                name="organization"
+                required
+                disabled={isLoading}
+                onChange={onChange}
+                value={formData.organization}
+                errors={errors.organization}
+                setErrors={setErrors}>
+                {organizations.map((organization) => (
+                  <option key={organization.$id} value={organization.$id}>
+                    {organization.name}
+                  </option>
+                ))}
+              </Dropdown>
               <div className="flex flex-col mt-6">
                 <button
                   type="submit"
                   disabled={!enableSubmit || isLoading}
                   onClick={onSubmit}
-                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}
-                >
+                  className={`btn btn-primary ${isLoading ? 'loading' : ''}`}>
                   {t('actions.save')}
                 </button>
               </div>
@@ -119,7 +138,14 @@ const Teams = () => {
           <Table
             name={TEAM_ENTITY}
             data={teams}
-            hidden={['$id', '$updatedAt', '$permissions', '$collectionId', '$databaseId']}
+            hidden={[
+              '$id',
+              '$updatedAt',
+              '$permissions',
+              '$collectionId',
+              '$databaseId',
+              'organization'
+            ]}
             customCells={[
               {
                 column: 'name',

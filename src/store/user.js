@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { ID } from 'appwrite';
-import { account, storage } from '../utils/appwriteConfig';
+import { ID, Query } from 'appwrite';
+import { account, database, databaseId, storage } from '../utils/appwriteConfig';
 import { GENERAL_UNAUTHORIZED_SCOPE } from '../utils/errorCodes';
 import { NO_ERROR } from '../utils/errorCodes';
-import { avatars_storage_id } from '../utils/collections';
+import { avatars_storage_id, team_members_collection_id } from '../utils/collections';
 
 const initialState = {
   session: null,
@@ -16,6 +16,29 @@ const initialState = {
 export const createUser = createAsyncThunk('user/createUser', async ({ email, password, name }) => {
   try {
     let response = await account.create(ID.unique(), email, password, name);
+
+    let teamMember = await database.listDocuments(databaseId, team_members_collection_id, [
+      Query.equal('email', response.email)
+    ]);
+
+    if (teamMember.documents.length > 0) {
+      await database.updateDocument(
+        databaseId,
+        team_members_collection_id,
+        teamMember.documents[0].$id,
+        {
+          userId: response.$id,
+          name: response.name
+        }
+      );
+    } else {
+      await database.createDocument(databaseId, team_members_collection_id, ID.unique(), {
+        userId: response.$id,
+        name: response.name,
+        email: response.email
+      });
+    }
+
     return response;
   } catch (error) {
     throw new Error(error.type);
@@ -62,7 +85,20 @@ export const uploadAvatar = createAsyncThunk('user/uploadAvatar', async (data, {
   const { user } = getState();
   try {
     let response = await storage.createFile(avatars_storage_id, data.userId, data.file);
-    await account.updatePrefs({ ...user.session.prefs, avatar: response.$id });
+
+    let teamMember = await database.listDocuments(databaseId, team_members_collection_id, [
+      Query.equal('email', user.session.email)
+    ]);
+
+    console.log('teamMember: ', teamMember);
+    await database.updateDocument(
+      databaseId,
+      team_members_collection_id,
+      teamMember.documents[0].$id,
+      {
+        avatar: response.$id
+      }
+    );
 
     return response.$id;
   } catch (error) {
@@ -70,9 +106,17 @@ export const uploadAvatar = createAsyncThunk('user/uploadAvatar', async (data, {
   }
 });
 
-export const getAvatar = createAsyncThunk('user/getAvatar', async (fileId) => {
+export const getAvatar = createAsyncThunk('user/getAvatar', async (email) => {
   try {
-    let response = await storage.getFileView(avatars_storage_id, fileId);
+    let teamMember = await database.listDocuments(databaseId, team_members_collection_id, [
+      Query.equal('email', email)
+    ]);
+
+    if (!teamMember.documents[0].avatar) {
+      return null;
+    }
+
+    let response = await storage.getFileView(avatars_storage_id, teamMember.documents[0].avatar);
 
     return response.href;
   } catch (error) {
@@ -80,22 +124,27 @@ export const getAvatar = createAsyncThunk('user/getAvatar', async (fileId) => {
   }
 });
 
-export const updateAvatar = createAsyncThunk('user/updateAvatar', async (data) => {
+export const updateAvatar = createAsyncThunk('user/updateAvatar', async (data, { getState }) => {
+  const { user } = getState();
   try {
     await storage.deleteFile(avatars_storage_id, data.fileId);
-    let created = await storage.createFile(avatars_storage_id, data.userId, data.file);
+    let updated = await storage.createFile(avatars_storage_id, data.userId, data.file);
 
-    return created.$id;
-  } catch (error) {
-    throw new Error(error.type);
-  }
-});
+    let teamMember = await database.listDocuments(databaseId, team_members_collection_id, [
+      Query.equal('email', user.session.email)
+    ]);
 
-export const updatePreferences = createAsyncThunk('user/updatePreferences', async (preferences) => {
-  try {
-    let response = await account.updatePrefs(preferences);
+    console.log('teamMember: ', teamMember);
+    await database.updateDocument(
+      databaseId,
+      team_members_collection_id,
+      teamMember.documents[0].$id,
+      {
+        avatar: updated.$id
+      }
+    );
 
-    return response.prefs;
+    return updated.$id;
   } catch (error) {
     throw new Error(error.type);
   }
@@ -181,18 +230,6 @@ export const userSlice = createSlice({
       state.session.avatarUrl = null;
     });
     builder.addCase(updateAvatar.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error.message;
-    });
-    builder.addCase(updatePreferences.pending, (state) => {
-      state.isLoading = true;
-    });
-    builder.addCase(updatePreferences.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.session.prefs = action.payload;
-    });
-    builder.addCase(updatePreferences.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message;
     });

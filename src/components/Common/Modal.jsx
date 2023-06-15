@@ -13,8 +13,7 @@ const Modal = ({ mode, entity, composedKey, modalRef, children, className }) => 
         <div className={`modal-box ${className ? className : ''}`}>
           <label
             htmlFor={composedKey}
-            className="btn btn-xs btn-square absolute right-2 top-2 bg-transparent text-neutral border-0 hover:bg-neutral hover:text-neutral-content"
-          >
+            className="btn btn-xs btn-square absolute right-2 top-2 bg-transparent text-neutral border-0 hover:bg-neutral hover:text-neutral-content">
             <CloseIcon />
           </label>
           <h3 className="font-bold text-lg">{t(`actions.${mode}`) + ' ' + entity}</h3>
