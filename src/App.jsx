@@ -11,6 +11,7 @@ import Teams from './views/Teams';
 import {
   ACCOUNT_PATH,
   EDITOR_PATH,
+  FLOW_PATH,
   FORGET_PATH,
   HOME_PATH,
   LOGIN_PATH,
@@ -39,6 +40,7 @@ import FullPageLoader from './components/Common/FullPageLoader';
 import EditorView from './views/Editor';
 import Members from './views/Members';
 import Organizations from './views/Organizations';
+import Flow from './views/Flow';
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
@@ -69,6 +71,7 @@ const App = () => (
             <Route element={<Team />} path={`${TEAMS_PATH}/:teamId`} />
             <Route element={<Account />} path={ACCOUNT_PATH} />
             <Route element={<EditorView />} path={EDITOR_PATH} />
+            <Route element={<Flow />} path={FLOW_PATH} />
             <Route element={<Members />} path={MEMBERS_PATH} />
             <Route element={<Organizations />} path={ORGANIZATIONS_PATH} />
           </Route>

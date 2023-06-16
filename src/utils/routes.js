@@ -10,4 +10,5 @@ export const VERIFY_PATH = '/verify';
 export const RESET_PATH = '/reset';
 export const ACCOUNT_PATH = '/account';
 export const EDITOR_PATH = '/editor';
+export const FLOW_PATH = '/flow';
 export const ORGANIZATIONS_PATH = '/organizations';
