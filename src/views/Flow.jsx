@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Stage, Layer, Rect, Transformer } from 'react-konva';
 import Layout from './../components/Layout/Layout';
 import ViewHeader from './../components/Layout/ViewHeader';
@@ -7,9 +7,6 @@ import View from '../components/Layout/View';
 import { BsSquare } from 'react-icons/bs';
 
 const Flow = () => {
-  const stageRef = useRef();
-  const transformerRef = useRef();
-
   const [newShape, setNewShape] = useState(null);
   const [shapes, setShapes] = useState([]);
   const [shapeType, setShapeType] = useState(null);
@@ -17,6 +14,7 @@ const Flow = () => {
 
   const onDragStart = (e) => {
     e.target.setAttrs({
+      ...e.target.attrs,
       shadowOffset: {
         x: 7,
         y: 7
@@ -26,16 +24,16 @@ const Flow = () => {
 
   const onDragEnd = (e) => {
     e.target.to({
-      duration: 0.2,
-      scaleX: 1,
-      scaleY: 1,
-      shadowOffsetX: 5,
-      shadowOffsetY: 5
+      duration: 0.5
     });
   };
 
   const handleMouseDown = (e) => {
-    if (selected) {
+    if (e.target.id() === 'stage') {
+      setSelected(null);
+    }
+
+    if (e.target.id() && e.target.id() !== selected?.id()) {
       setSelected(null);
     }
 
@@ -81,6 +79,26 @@ const Flow = () => {
     if (!newShape) return;
     if (newShape.props.width === 0 || newShape.props.height === 0) {
       setShapes((shapes) => shapes.slice(0, -1));
+    } else {
+      let newShapes = [...shapes];
+      let lastShape = newShapes[shapes.length - 1];
+      let currentRotation = newShape.props.rotation;
+
+      if (lastShape.type === 'rect') {
+        lastShape.props.rotation = 0;
+        if (currentRotation === 90) {
+          newShape.props.x = newShape.props.x - newShape.props.height;
+        } else if (currentRotation === 180) {
+          newShape.props.x = newShape.props.x - newShape.props.width;
+          newShape.props.y = newShape.props.y - newShape.props.height;
+        } else if (currentRotation === 270) {
+          newShape.props.y = newShape.props.y - newShape.props.width;
+        }
+      }
+
+      newShapes[shapes.length - 1] = lastShape;
+
+      setShapes(newShapes);
     }
 
     setNewShape(null);
@@ -94,14 +112,18 @@ const Flow = () => {
     let width = pos.x - newShape.props.x;
     let height = pos.y - newShape.props.y;
 
-    if (width < 0) {
+    if (width <= 0 && height <= 0) {
       rotate = 180;
       width = Math.abs(width);
-    }
-
-    if (height < 0) {
-      rotate = 180;
       height = Math.abs(height);
+    } else if (width <= 0 && height >= 0) {
+      rotate = 90;
+      width = Math.abs(height);
+      height = Math.abs(width);
+    } else if (width >= 0 && height <= 0) {
+      rotate = 270;
+      width = Math.abs(height);
+      height = Math.abs(width);
     }
 
     newShape.props.rotation = rotate;
@@ -111,15 +133,6 @@ const Flow = () => {
     // We need to update the state to force a redraw
     setShapes((shapes) => [...shapes]);
   };
-
-  useEffect(() => {
-    console.log('selected: ', selected);
-
-    if (selected) {
-      transformerRef.current.nodes([selected]);
-      transformerRef.current.getLayer().batchDraw();
-    }
-  }, [selected]);
 
   return (
     <Layout>
@@ -132,9 +145,10 @@ const Flow = () => {
           </div>
         </ViewHeader>
         <ViewContent>
-          <div className="border rounded p-2 box-border overflow-hidden w-full h-full">
+          <div className="border rounded box-border overflow-hidden w-full h-full">
             <Stage
-              ref={stageRef}
+              id="stage"
+              className="w-full h-full"
               width={window.innerWidth}
               height={window.innerHeight}
               onMouseDown={handleMouseDown}
@@ -144,23 +158,35 @@ const Flow = () => {
                 {shapes.map((shape, i) => (
                   <Rect key={i} {...shape.props} />
                 ))}
-                <Transformer
-                  ref={transformerRef}
-                  rotateEnabled={true}
-                  resizeEnabled={true}
-                  borderStroke="#2196f3"
-                  anchorStroke="#2196f3"
-                  anchorFill="#fff"
-                  anchorSize={8}
-                  boundBoxFunc={(oldBox, newBox) => {
-                    // Limitar el tamaño mínimo del rectángulo
-                    if (newBox.width < 10 || newBox.height < 10) {
-                      return oldBox;
-                    }
-                    return newBox;
-                  }}
-                  visible={!!selected}
-                />
+                {selected && (
+                  <Transformer
+                    rotateEnabled={true}
+                    resizeEnabled={true}
+                    borderStroke="#2196f3"
+                    anchorStroke="#2196f3"
+                    anchorFill="#fff"
+                    anchorSize={8}
+                    boundBoxFunc={(oldBox, newBox) => {
+                      if (newBox.width < 10 || newBox.height < 10) {
+                        return oldBox;
+                      }
+                      return newBox;
+                    }}
+                    visible={true}
+                    nodes={[selected]}
+                    onTransform={(e) => {
+                      //
+                      const { x, y, width, height, scaleX, scaleY } = e.target.attrs;
+
+                      selected.setAttrs({
+                        // width: width * scaleX,
+                        // height: height * scaleY
+                        scaleX: scaleX,
+                        scaleY: scaleY
+                      });
+                    }}
+                  />
+                )}
               </Layer>
             </Stage>
           </div>

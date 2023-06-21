@@ -72,3 +72,12 @@ thead {
   position: sticky;
   top: 0;
 }
+
+#stage {
+  background-color: #f1f1f1;
+  opacity: 0.8;
+  background-image: radial-gradient(#727272 1.1500000000000001px, transparent 1.1500000000000001px),
+    radial-gradient(#727272 1.1500000000000001px, #f1f1f1 1.1500000000000001px);
+  background-size: 46px 46px;
+  background-position: 0 0, 23px 23px;
+}
