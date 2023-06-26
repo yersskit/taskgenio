@@ -7,7 +7,7 @@ const ViewHeader = ({ title, name, children }) => {
       {name && (
         <h3 className="text-neutral-content bg-neutral px-6 py-1 box-border rounded">{name}</h3>
       )}
-      <div className="flex justify-start items-center ml-auto gap-2">{children}</div>
+      <div className="flex justify-start items-center ml-auto gap-2 w-full">{children}</div>
     </div>
   );
 };
