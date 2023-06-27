@@ -36,6 +36,7 @@
     "react-konva": "^18.2.9",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
+    "reactflow": "^11.7.4",
     "redux-first-history": "^5.1.1",
     "uuid": "^9.0.0"
   },
